@@ -1,0 +1,57 @@
+import type { Metadata } from "next";
+import { Geist } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { resolveSiteUrl } from "@/lib/site-url";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL(resolveSiteUrl()),
+  title: {
+    default: "आरोग्य समुदाय महाराष्ट्र",
+    template: "%s | आरोग्य समुदाय महाराष्ट्र",
+  },
+  description:
+    "आरोग्य, पोषण, मधुमेह, व्यायाम आणि निरोगी जीवनशैलीसाठी महाराष्ट्रातील मराठी समुदाय.",
+  keywords: ["मधुमेह", "हृदय आरोग्य", "पोषण", "व्यायाम", "मिलेट्स", "मायक्रोग्रीन्स", "मराठी आरोग्य"],
+  openGraph: {
+    title: "आरोग्य समुदाय महाराष्ट्र",
+    description: "मराठीत आरोग्य, पोषण, मधुमेह आणि जीवनशैलीची माहिती.",
+    type: "website",
+    locale: "mr_IN",
+    siteName: "आरोग्य समुदाय महाराष्ट्र",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "आरोग्य समुदाय महाराष्ट्र",
+    description: "मराठीत आरोग्य, पोषण आणि समुदायात्मक आरोग्य माहिती.",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="mr" className={`${geistSans.variable} h-full antialiased`}>
+      <body className="min-h-full bg-[#f7fff9] text-slate-800">
+        <a href="#main-content" className="skip-link">
+          मुख्य मजकुराकडे जा
+        </a>
+        <div className="flex min-h-screen flex-col">
+          <Navbar />
+          <div id="main-content" tabIndex={-1} className="flex-1">
+            {children}
+          </div>
+          <Footer />
+        </div>
+      </body>
+    </html>
+  );
+}

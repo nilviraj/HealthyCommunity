@@ -1,0 +1,135 @@
+﻿import type { Metadata } from "next";
+import { Wheat, HeartPulse, Salad, CheckCircle2 } from "lucide-react";
+import Breadcrumb from "@/components/Breadcrumb";
+import HeroBanner from "@/components/HeroBanner";
+import CTA from "@/components/CTA";
+import Disclaimer from "@/components/Disclaimer";
+
+export const metadata: Metadata = {
+  title: "मिलेट्स - मधुमेहासाठी उपयुक्त तृणधान्ये",
+  description:
+    "मधुमेह व्यवस्थापनासाठी उपयुक्त मिलेट्स: बार्नयार्ड, नाचणी, कोदो, फॉक्सटेल, लिटल आणि ब्राऊनटॉप यांची माहिती.",
+  keywords: ["मिलेट्स", "तृणधान्य", "मधुमेह", "नाचणी", "बार्नयार्ड"],
+  openGraph: {
+    title: "मिलेट्स - मधुमेहासाठी उपयुक्त तृणधान्ये",
+    description:
+      "मधुमेह असलेल्या व्यक्तींनी आहारात कोणती मिलेट्स कशी समाविष्ट करावी यावरील मार्गदर्शन.",
+  },
+  alternates: { canonical: "/millets" },
+};
+
+const milletHighlights = [
+  {
+    title: "बार्नयार्ड मिलेट (Barnyard Millet)",
+    description:
+      "बार्नयार्ड मिलेट (सांवा, समक तांदूळ, कुतिरावली) हे मधुमेहासाठी सर्वोत्तम मानल्या जाणाऱ्या तृणधान्यांपैकी एक आहे. यामध्ये भरपूर फायबर, प्रथिने, लोह, कॅल्शियम, मॅग्नेशियम आणि बी-समूह जीवनसत्त्वे आढळतात. याचा ग्लायसेमिक इंडेक्स (GI) पांढऱ्या तांदळापेक्षा कमी असल्यामुळे जेवणानंतर रक्तातील साखर झपाट्याने वाढत नाही. हे जास्त वेळ पोट भरल्यासारखे ठेवते, वजन नियंत्रणात मदत करते आणि पचन सुधारते. उपमा, खिचडी, पुलाव, पेज किंवा भाताच्या पर्याय म्हणून याचा वापर करता येतो. मधुमेह असलेल्या व्यक्तींनी आठवड्यातून २ ते ३ वेळा मर्यादित प्रमाणात सेवन करणे फायदेशीर ठरते."
+  },
+
+  {
+    title: "नाचणी (Ragi / Finger Millet)",
+    description:
+      "नाचणी हे कॅल्शियम, लोह, फायबर आणि अँटिऑक्सिडंट्सने समृद्ध असलेले अत्यंत पौष्टिक धान्य आहे. हाडे मजबूत ठेवण्यासाठी हे सर्वोत्तम नैसर्गिक स्रोतांपैकी एक मानले जाते. फायबरमुळे अन्नाचे पचन हळूहळू होते, त्यामुळे रक्तातील साखर नियंत्रित राहण्यास मदत मिळते. तसेच वजन कमी करण्यासाठी, बद्धकोष्ठता कमी करण्यासाठी आणि दीर्घकाळ पोट भरल्यासारखे वाटण्यासाठी नाचणी उपयुक्त आहे. नाचणीची भाकरी, सत्त्व, डोसा, इडली किंवा रागी माल्ट स्वरूपात सेवन करता येते."
+  },
+
+  {
+    title: "कोदो मिलेट (Kodo Millet)",
+    description:
+      "कोदो मिलेट (कोद्रा) हे उच्च फायबरयुक्त आणि कमी ग्लायसेमिक इंडेक्स असलेले तृणधान्य आहे. यामध्ये प्रथिने, लोह, मॅग्नेशियम, फॉस्फरस आणि अँटिऑक्सिडंट्स मुबलक प्रमाणात असतात. हे रक्तातील साखर नियंत्रित ठेवण्यास, पचन सुधारण्यास, वजन कमी करण्यास आणि हृदयाचे आरोग्य चांगले ठेवण्यास मदत करते. कोदो मिलेट भाताचा उत्तम पर्याय असून त्यापासून खिचडी, पुलाव, उपमा आणि पेज तयार करता येते. मधुमेह असलेल्या व्यक्तींनी आठवड्यातून २ वेळा याचा आहारात समावेश करावा."
+  },
+
+  {
+    title: "फॉक्सटेल मिलेट (Foxtail Millet)",
+    description:
+      "फॉक्सटेल मिलेट (कांगणी/काकूम) हे प्रथिने आणि फायबरचा उत्कृष्ट स्रोत आहे. यामध्ये लोह, मॅग्नेशियम, फॉस्फरस आणि बी-समूह जीवनसत्त्वे भरपूर प्रमाणात असतात. हे पचन सुधारते, ऊर्जा टिकवून ठेवते, वजन नियंत्रणात मदत करते आणि रक्तातील साखरेची पातळी स्थिर ठेवण्यास सहाय्य करते. सकाळच्या नाश्त्यासाठी उपमा, डोसा, इडली किंवा पुलाव बनवण्यासाठी हे उत्तम धान्य आहे. नियमित पण मर्यादित प्रमाणात सेवन केल्यास मधुमेह नियंत्रणासाठी फायदेशीर ठरते."
+  },
+
+  {
+    title: "लिटल मिलेट (Little Millet)",
+    description:
+      "लिटल मिलेट (सामई/कुटकी) आकाराने लहान असले तरी पोषणमूल्यांनी समृद्ध आहे. यामध्ये फायबर, प्रथिने, लोह, मॅग्नेशियम, फॉस्फरस आणि अँटिऑक्सिडंट्स मुबलक प्रमाणात असतात. हे पचन सुधारते, दीर्घकाळ पोट भरल्याची भावना देते, रक्तातील साखर नियंत्रित ठेवण्यास मदत करते आणि हृदयाच्या आरोग्यासाठी लाभदायक आहे. यापासून उपमा, खिचडी, पुलाव, पेज आणि डोसा सहज बनवता येतो. आठवड्यातून १ ते २ वेळा सेवन केल्यास आरोग्यासाठी चांगला पर्याय ठरतो."
+  },
+
+  {
+    title: "ब्राऊनटॉप मिलेट (Browntop Millet)",
+    description:
+      "ब्राऊनटॉप मिलेट हे सर्वाधिक फायबर असलेल्या तृणधान्यांपैकी एक आहे. यामध्ये लोह, मॅग्नेशियम, फॉस्फरस, प्रथिने आणि अँटिऑक्सिडंट्स भरपूर असतात. हे आतड्यांचे आरोग्य सुधारते, रक्तातील साखर हळूहळू वाढू देते, वजन नियंत्रणात मदत करते आणि दीर्घकाळ पोट भरल्यासारखे वाटते. याचा वापर उपमा, पुलाव, खिचडी किंवा पेज बनवण्यासाठी करता येतो. मधुमेह असलेल्या व्यक्तींनी आठवड्यातून १ वेळा याचा आहारात समावेश करावा."
+  }
+];
+
+const usageTips = [
+  "एकदम मोठा बदल न करता आठवड्यात १-२ वेळा मिलेट वापरून सुरुवात करा.",
+  "मिलेट्स भिजवून आणि नीट शिजवून खाल्ल्यास पचनास मदत होते.",
+  "पांढऱ्या तांदळाऐवजी मिलेट्सचे प्रमाण हळूहळू वाढवा.",
+  "मिलेटसोबत भाज्या, प्रथिने (डाळ/कडधान्य) आणि सॅलड जोडा.",
+];
+
+export default function MilletsPage() {
+  return (
+    <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+      <Breadcrumb items={[{ label: "मुख्यपृष्ठ", href: "/" }, { label: "मिलेट्स" }]} />
+
+      <div className="mt-8">
+        <HeroBanner
+          eyebrow="मिलेट्स"
+          title="मधुमेहासाठी उपयुक्त तृणधान्ये"
+          description="मिलेट्समध्ये फायबर, खनिजे आणि सूक्ष्म पोषकद्रव्ये मुबलक असतात. संतुलित प्रमाणात आहारात समावेश केल्यास रक्तातील साखर नियंत्रणासाठी मदत होऊ शकते."
+        />
+      </div>
+
+      <section className="mt-12 grid gap-4 sm:grid-cols-2">
+        {milletHighlights.map((item) => (
+          <article
+            key={item.title}
+            className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+          >
+            <h2 className="text-xl font-semibold text-slate-900 dark:text-white">{item.title}</h2>
+            <p className="mt-3 text-slate-700 dark:text-slate-300 leading-relaxed">{item.description}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="mt-12 rounded-2xl border border-emerald-200 bg-emerald-50 p-6 dark:border-emerald-900 dark:bg-emerald-950/30">
+        <h2 className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">आहारात मिलेट्स कसे समाविष्ट कराल?</h2>
+        <div className="mt-5 grid gap-3">
+          {usageTips.map((tip) => (
+            <div key={tip} className="flex gap-3 text-emerald-900 dark:text-emerald-100">
+              <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0" />
+              <p>{tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-12 grid gap-4 sm:grid-cols-3">
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
+          <Wheat className="h-6 w-6 text-amber-600" />
+          <h3 className="mt-3 font-semibold text-slate-900 dark:text-white">उच्च फायबर</h3>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">हळूहळू पचन होऊन साखर अचानक वाढण्याची शक्यता कमी होते.</p>
+        </div>
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
+          <HeartPulse className="h-6 w-6 text-rose-600" />
+          <h3 className="mt-3 font-semibold text-slate-900 dark:text-white">हृदयासाठी उपयुक्त</h3>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">चांगले फॅट प्रोफाइल आणि खनिजांमुळे हृदय आरोग्याला हातभार लागू शकतो.</p>
+        </div>
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
+          <Salad className="h-6 w-6 text-emerald-600" />
+          <h3 className="mt-3 font-semibold text-slate-900 dark:text-white">संतुलित जेवण</h3>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">मिलेट + भाज्या + डाळ/प्रथिने असा थाळी पॅटर्न जास्त फायदेशीर ठरतो.</p>
+        </div>
+      </section>
+
+      <div className="mt-12">
+        <Disclaimer />
+      </div>
+
+      <div className="mt-10">
+        <CTA
+          title="मधुमेह आहार नियोजनासाठी मार्गदर्शन हवे आहे?"
+          description="आहार, व्यायाम आणि जीवनशैलीतील छोटे बदल दीर्घकालीन आरोग्य सुधारू शकतात."
+        />
+      </div>
+    </main>
+  );
+}
+
+
