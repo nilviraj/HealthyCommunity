@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Analytics from "@/components/Analytics";
 import { resolveSiteUrl } from "@/lib/site-url";
 
 const geistSans = Geist({
@@ -38,12 +39,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const adsenseClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+
   return (
     <html lang="mr" className={`${geistSans.variable} h-full antialiased`}>
       <body className="min-h-full bg-[#f7fff9] text-slate-800">
         <a href="#main-content" className="skip-link">
           मुख्य मजकुराकडे जा
         </a>
+        <Analytics gaMeasurementId={gaMeasurementId} adsenseClientId={adsenseClientId} />
         <div className="flex min-h-screen flex-col">
           <Navbar />
           <div id="main-content" tabIndex={-1} className="flex-1">

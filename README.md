@@ -44,14 +44,27 @@ NEXT_PUBLIC_FACEBOOK_URL=https://www.facebook.com/your-page
 NEXT_PUBLIC_INSTAGRAM_URL=https://www.instagram.com/your-handle
 NEXT_PUBLIC_YOUTUBE_URL=https://www.youtube.com/@your-channel
 SITEMAP_LAST_MODIFIED=2026-08-02
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_ADSENSE_CLIENT_ID=ca-pub-XXXXXXXXXXXXXXXX
 ```
 
 Notes:
 
 - `NEXT_PUBLIC_SITE_URL` must match the deployed canonical origin.
 - `CONTACT_FORM_TO` supports comma-separated recipients.
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` enables Google Analytics 4.
+- `NEXT_PUBLIC_ADSENSE_CLIENT_ID` enables the AdSense loader script.
 - `public/ads.txt` should contain your real AdSense publisher ID before launch.
 - Restart the dev server after changing environment variables.
+
+## Google Analytics And AdSense
+
+1. Create a GA4 property and copy the measurement ID that starts with `G-`.
+2. Add `NEXT_PUBLIC_GA_MEASUREMENT_ID` to your production environment.
+3. Create an AdSense account, then replace the placeholder in `public/ads.txt` with your real publisher ID.
+4. Add `NEXT_PUBLIC_ADSENSE_CLIENT_ID` to your production environment.
+5. Redeploy the app so the scripts and `ads.txt` file are live.
+6. Wait for AdSense review and approval before expecting ads to appear.
 
 ## Learn More
 

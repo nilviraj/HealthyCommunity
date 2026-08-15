@@ -10,10 +10,12 @@ export default function ContactClient() {
   const [serverError, setServerError] = useState("");
   const fieldErrorId = (field: "name" | "phone" | "email" | "message") => `${field}-error`;
 
+  const normalizePhoneNumber = (value: string) => value.replace(/\D/g, "");
+
   const validate = () => {
     const nextErrors: { [key: string]: string } = {};
     if (!form.name.trim()) nextErrors.name = "कृपया पूर्ण नाव भरा.";
-    if (!/^\d{10}$/.test(form.phone)) nextErrors.phone = "मोबाईल क्रमांक १० अंकी असावा.";
+    if (!/^\d{10,15}$/.test(normalizePhoneNumber(form.phone))) nextErrors.phone = "मोबाईल क्रमांक १० ते १५ अंकांचा असावा.";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) nextErrors.email = "कृपया वैध ईमेल लिहा.";
     if (!form.message.trim()) nextErrors.message = "संदेश भरणे अनिवार्य आहे.";
     setErrors(nextErrors);
@@ -34,7 +36,7 @@ export default function ContactClient() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, phone: normalizePhoneNumber(form.phone) }),
       });
 
       const result = (await response.json()) as { message?: string };
@@ -82,7 +84,7 @@ export default function ContactClient() {
             </label>
             <label className="text-sm font-medium text-slate-700">
               मोबाईल क्रमांक
-              <input id="phone" name="phone" type="tel" inputMode="numeric" autoComplete="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} aria-invalid={Boolean(errors.phone)} aria-describedby={errors.phone ? fieldErrorId("phone") : undefined} className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-base outline-none focus:border-emerald-500" />
+              <input id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="9876543210" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} aria-invalid={Boolean(errors.phone)} aria-describedby={errors.phone ? fieldErrorId("phone") : undefined} className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-base outline-none focus:border-emerald-500" />
               {errors.phone ? <span id={fieldErrorId("phone")} role="alert" className="mt-2 block text-sm text-red-600">{errors.phone}</span> : null}
             </label>
             <label className="text-sm font-medium text-slate-700">

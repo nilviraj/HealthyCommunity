@@ -18,6 +18,10 @@ type ContactPayload = {
 
 const MAX_CONTENT_LENGTH_BYTES = 20_000;
 
+function normalizePhoneNumber(value: string) {
+  return value.replace(/\D/g, "");
+}
+
 function jsonNoStore(body: unknown, init?: ResponseInit) {
   const response = NextResponse.json(body, init);
   response.headers.set("Cache-Control", "no-store, max-age=0");
@@ -35,6 +39,18 @@ function escapeHtml(value: string) {
 
 function isTrustedRequestOrigin(request: Request) {
   const allowedOrigins = resolveAllowedOrigins(request.url);
+  const forwardedProto = request.headers.get("x-forwarded-proto")?.split(",")[0]?.trim();
+  const forwardedHost = request.headers.get("x-forwarded-host")?.split(",")[0]?.trim();
+  const host = request.headers.get("host")?.split(",")[0]?.trim();
+
+  if (forwardedHost) {
+    allowedOrigins.add(`${forwardedProto ?? "https"}://${forwardedHost}`);
+  }
+
+  if (host) {
+    allowedOrigins.add(`${forwardedProto ?? "https"}://${host}`);
+  }
+
   const origin = request.headers.get("origin");
   const referer = request.headers.get("referer");
 
@@ -84,7 +100,7 @@ function validatePayload(payload: ContactPayload) {
   const errors: Record<string, string> = {};
 
   if (!payload.name?.trim()) errors.name = "Name is required.";
-  if (!/^\d{10}$/.test(payload.phone ?? "")) errors.phone = "Phone must be 10 digits.";
+  if (!/^\d{10,15}$/.test(normalizePhoneNumber(payload.phone ?? ""))) errors.phone = "Phone must contain 10 to 15 digits.";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email ?? "")) errors.email = "Valid email is required.";
   if (!payload.message?.trim()) errors.message = "Message is required.";
 
@@ -114,7 +130,7 @@ export async function POST(request: Request) {
     const body = (await request.json()) as Partial<ContactPayload>;
     const payload: ContactPayload = {
       name: (body.name ?? "").toString().trim(),
-      phone: (body.phone ?? "").toString().trim(),
+      phone: normalizePhoneNumber((body.phone ?? "").toString()),
       email: (body.email ?? "").toString().trim(),
       message: (body.message ?? "").toString().trim(),
       website: (body.website ?? "").toString().trim(),
