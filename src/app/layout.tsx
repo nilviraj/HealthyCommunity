@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -52,21 +53,6 @@ export default function RootLayout({
   return (
     <html lang="mr" className={`${geistSans.variable} h-full antialiased`}>
       <head>
-        {gaMeasurementId ? (
-          <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){window.dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${gaMeasurementId}');
-                `,
-              }}
-            />
-          </>
-        ) : null}
         {adsenseClientId ? (
           <script
             async
@@ -76,6 +62,18 @@ export default function RootLayout({
         ) : null}
       </head>
       <body className="min-h-full bg-[#f7fff9] text-slate-800">
+        {gaMeasurementId ? (
+          <>
+            <Script
+              src={`/google-analytics-init.js?id=${encodeURIComponent(gaMeasurementId)}`}
+              strategy="beforeInteractive"
+            />
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy="beforeInteractive"
+            />
+          </>
+        ) : null}
         <a href="#main-content" className="skip-link">
           मुख्य मजकुराकडे जा
         </a>
