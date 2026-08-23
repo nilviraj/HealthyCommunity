@@ -52,31 +52,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="mr" className={`${geistSans.variable} h-full antialiased`}>
+      <head>
+        {adsenseClientId ? (
+          <script
+            async
+            crossOrigin="anonymous"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
+          />
+        ) : null}
+      </head>
       <body className="min-h-full bg-[#f7fff9] text-slate-800">
         {gaMeasurementId ? (
           <>
             <Script
+              src={`/google-analytics-init.js?id=${encodeURIComponent(gaMeasurementId)}`}
+              strategy="beforeInteractive"
+            />
+            <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
               strategy="beforeInteractive"
             />
-            <Script id="google-analytics" strategy="beforeInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){window.dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaMeasurementId}');
-              `}
-            </Script>
           </>
-        ) : null}
-        {adsenseClientId ? (
-          <Script
-            id="google-adsense"
-            async
-            crossOrigin="anonymous"
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
-            strategy="beforeInteractive"
-          />
         ) : null}
         <a href="#main-content" className="skip-link">
           मुख्य मजकुराकडे जा
