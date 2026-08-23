@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Analytics from "@/components/Analytics";
+import { normalizeAdSenseClientId } from "@/lib/google-ids";
 import { resolveSiteUrl } from "@/lib/site-url";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
+const adsenseClientId = normalizeAdSenseClientId(process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID);
 
 export const metadata: Metadata = {
   metadataBase: new URL(resolveSiteUrl()),
@@ -32,6 +36,13 @@ export const metadata: Metadata = {
     title: "आरोग्य समुदाय महाराष्ट्र",
     description: "मराठीत आरोग्य, पोषण आणि समुदायात्मक आरोग्य माहिती.",
   },
+  ...(adsenseClientId
+    ? {
+        other: {
+          "google-adsense-account": adsenseClientId,
+        },
+      }
+    : {}),
 };
 
 export default function RootLayout({
@@ -39,16 +50,37 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-  const adsenseClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
-
   return (
     <html lang="mr" className={`${geistSans.variable} h-full antialiased`}>
       <body className="min-h-full bg-[#f7fff9] text-slate-800">
+        {gaMeasurementId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy="beforeInteractive"
+            />
+            <Script id="google-analytics" strategy="beforeInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){window.dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaMeasurementId}');
+              `}
+            </Script>
+          </>
+        ) : null}
+        {adsenseClientId ? (
+          <Script
+            id="google-adsense"
+            async
+            crossOrigin="anonymous"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
+            strategy="beforeInteractive"
+          />
+        ) : null}
         <a href="#main-content" className="skip-link">
           मुख्य मजकुराकडे जा
         </a>
-        <Analytics gaMeasurementId={gaMeasurementId} adsenseClientId={adsenseClientId} />
         <div className="flex min-h-screen flex-col">
           <Navbar />
           <div id="main-content" tabIndex={-1} className="flex-1">
