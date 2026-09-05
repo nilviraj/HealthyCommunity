@@ -158,6 +158,46 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* संपादकीय प्रक्रिया */}
+        <section id="editorial-process" className="scroll-mt-24 rounded-3xl border border-emerald-100 bg-white p-5 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-bold text-slate-900">
+            🔎 आमची संपादकीय प्रक्रिया
+          </h2>
+
+          <p className="mt-5 leading-8 text-slate-600">
+            <strong>Healthy Community संपादकीय टीम</strong> आरोग्यविषयक माहिती
+            सामान्य वाचकांसाठी समजण्यास सोप्या मराठीत मांडते. शक्य तेथे WHO,
+            ICMR, भारत सरकार आणि इतर मान्यताप्राप्त सार्वजनिक आरोग्य संस्थांच्या
+            स्रोतांचा आधार घेतला जातो. प्रत्येक लेखावर लेखक, प्रकाशित व अद्ययावत
+            तारीख, वापरलेले संदर्भ आणि संपादकीय पुनरावलोकनाची स्थिती स्पष्टपणे
+            दाखवली जाते.
+          </p>
+
+          <p className="mt-4 leading-8 text-slate-600">
+            संपादकीय तपासणी आणि वैद्यकीय पुनरावलोकन या वेगळ्या प्रक्रिया आहेत.
+            स्वतंत्र पात्र डॉक्टरांनी लेख तपासलेला नसेल तर आम्ही “वैद्यकीय
+            पुनरावलोकन” असा दावा करत नाही. अशा वेळी लेखावर “स्रोत-आधारित
+            संपादकीय तपासणी” अशी स्पष्ट नोंद आणि तपासलेले अधिकृत संदर्भ दाखवले
+            जातात. माहितीमध्ये महत्त्वाचा बदल झाल्यास लेख अद्ययावत करून तारीख
+            बदलली जाते.
+          </p>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <div className="rounded-xl bg-emerald-50 p-5">
+              <h3 className="font-semibold text-slate-900">1. अधिकृत स्रोत</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">वैद्यकीय दाव्यांसाठी अधिकृत किंवा मान्यताप्राप्त स्रोतांना प्राधान्य.</p>
+            </div>
+            <div className="rounded-xl bg-emerald-50 p-5">
+              <h3 className="font-semibold text-slate-900">2. स्पष्ट मराठी</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">अवघड संज्ञांचा अर्थ सांगून सुरक्षित, गैरदिशाभूल करणारी भाषा.</p>
+            </div>
+            <div className="rounded-xl bg-emerald-50 p-5">
+              <h3 className="font-semibold text-slate-900">3. पारदर्शकता</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">तारीख, संदर्भ, अस्वीकरण आणि संपादकीय तपासणीची स्थिती वाचकांसमोर स्पष्ट.</p>
+            </div>
+          </div>
+        </section>
+
         {/* अंतिम संदेश */}
         <section className="rounded-3xl bg-emerald-600 p-6 text-center text-white shadow-lg sm:p-10">
           <h2 className="text-2xl font-bold sm:text-3xl">
@@ -176,5 +216,3 @@ export default function AboutPage() {
     </main>
   );
 }
-
-
