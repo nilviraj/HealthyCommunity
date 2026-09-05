@@ -6,13 +6,15 @@ import { ArrowRight, BookOpen, Dumbbell, HeartPulse, MessageCircle, ShieldCheck,
 import { articles as allArticles } from "@/data/articles";
 import { resolveSiteUrl } from "@/lib/site-url";
 
+const homeTitle = "मराठी आरोग्य मार्गदर्शन, मधुमेह आणि पोषण | Healthy Community";
+
 export const metadata: Metadata = {
-  title: "मुख्यपृष्ठ",
+  title: { absolute: homeTitle },
   description:
     "मधुमेह, पोषण, व्यायाम, मिलेट्स आणि आरोग्यदायी जीवनशैलीबद्दल मराठीतून विश्वासार्ह मार्गदर्शन.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "मुख्यपृष्ठ",
+    title: homeTitle,
     description:
       "मधुमेह, पोषण, व्यायाम, मिलेट्स आणि आरोग्यदायी जीवनशैलीबद्दल मराठीतून विश्वासार्ह मार्गदर्शन.",
     url: "/",
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "मुख्यपृष्ठ",
+    title: homeTitle,
     description:
       "मधुमेह, पोषण, व्यायाम, मिलेट्स आणि आरोग्यदायी जीवनशैलीबद्दल मराठीतून विश्वासार्ह मार्गदर्शन.",
   },
@@ -215,5 +217,4 @@ export default function Home() {
     </div>
   );
 }
-
 

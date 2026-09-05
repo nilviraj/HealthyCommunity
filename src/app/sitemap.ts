@@ -4,7 +4,11 @@ import { resolveSiteUrl } from "@/lib/site-url";
 
 const siteUrl = resolveSiteUrl();
 const configuredLastModified = process.env.SITEMAP_LAST_MODIFIED;
-const lastModified = configuredLastModified ? new Date(configuredLastModified) : undefined;
+const staticLastModifiedDates: Record<string, string> = {
+  "": "2026-09-05",
+  "/about": "2026-09-05",
+  "/articles": "2026-09-05",
+};
 
 const staticPaths = [
   "",
@@ -40,16 +44,24 @@ const staticPaths = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticUrls: MetadataRoute.Sitemap = staticPaths.map((path, index) => ({
-    url: `${siteUrl}${path}`,
-    ...(lastModified ? { lastModified } : {}),
-    changeFrequency: path === "" || path === "/articles" ? "weekly" : "monthly",
-    priority: index === 0 ? 1 : 0.8,
-  }));
+  const staticUrls: MetadataRoute.Sitemap = staticPaths.map((path, index) => {
+    const pathLastModified = staticLastModifiedDates[path];
+
+    return {
+      url: `${siteUrl}${path}`,
+      ...(configuredLastModified
+        ? { lastModified: configuredLastModified }
+        : pathLastModified
+          ? { lastModified: pathLastModified }
+          : {}),
+      changeFrequency: path === "" || path === "/articles" ? "weekly" : "monthly",
+      priority: index === 0 ? 1 : 0.8,
+    };
+  });
 
   const articleUrls: MetadataRoute.Sitemap = articles.map((article) => ({
     url: `${siteUrl}/articles/${article.slug}`,
-    lastModified: lastModified ?? new Date(`${article.updatedAt}T00:00:00+05:30`),
+    lastModified: configuredLastModified ?? article.updatedAt,
     changeFrequency: "monthly",
     priority: 0.7,
   }));

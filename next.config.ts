@@ -28,6 +28,16 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "healthy-community-navy.vercel.app" }],
+        destination: "https://www.healthycommunity.in/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
