@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Leaf, Droplets, Sun, CheckCircle2, AlertCircle, Sprout } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -6,26 +6,26 @@ import HeroBanner from "@/components/HeroBanner";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "मायक्रोग्रीन्स - घरच्या घरी लहान आकारचे पोषण",
+  title: "मायक्रोग्रीन्स म्हणजे काय? घरी कसे वाढवावे?",
   description:
     "मायक्रोग्रीन्स म्हणजे काय, घरी कसे वाढवावे, आणि संतुलित आहारात कसे वापरावे - विस्तृत मार्गदर्शन.",
   keywords: [
     "मायक्रोग्रीन्स",
     "अंकुर",
-    "घरी बागेरी",
+    "घरच्या घरी बागकाम",
     "पोषण",
-    "आरोग्यदायी खाना",
+    "आरोग्यदायी अन्न",
     "मधुमेह",
   ],
   openGraph: {
-    title: "मायक्रोग्रीन्स - लहान आकार, मोठे पोषण",
+    title: "मायक्रोग्रीन्स म्हणजे काय? घरी कसे वाढवावे?",
     description: "मायक्रोग्रीन्स घरच्या घरी कसे वाढवावे आणि आहारात कसे वापरावे.",
     url: "/microgreens",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "मायक्रोग्रीन्स - लहान आकार, मोठे पोषण",
+    title: "मायक्रोग्रीन्स म्हणजे काय? घरी कसे वाढवावे?",
     description: "मायक्रोग्रीन्स घरच्या घरी कसे वाढवावे आणि आहारात कसे वापरावे.",
   },
   alternates: { canonical: "/microgreens" },
@@ -232,7 +232,7 @@ export default function MicrogreensPage() {
       <div className="mt-8">
         <HeroBanner
           eyebrow="मायक्रोग्रीन्स"
-          title="लहान आकार, मोठे पोषण"
+          title="मायक्रोग्रीन्स म्हणजे काय आणि घरी कसे वाढवावे?"
           description="मायक्रोग्रीन्स म्हणजे अंकुरल्यानंतर काही दिवसांत कापली जाणारी कोवळी पाने. ही जीवनसत्त्वे, खनिजे आणि अँटिऑक्सिडंट्सने समृद्ध असतात आणि संतुलित आहाराचा एक चांगला भाग बनू शकतात."
         />
       </div>
@@ -468,7 +468,7 @@ export default function MicrogreensPage() {
 
       <CTA
         title="आजपासूनच मायक्रोग्रीन्स वाढवणे सुरू करा"
-        description="लहान जागा, जलद वाढ, मोठे पोषण. आपल्या घरातून आरोग्यदायी खाना उगवा."
+        description="लहान जागा, जलद वाढ, मोठे पोषण. आपल्या घरातून आरोग्यदायी अन्न उगवा."
       />
 
       <section className="mt-12 space-y-4">

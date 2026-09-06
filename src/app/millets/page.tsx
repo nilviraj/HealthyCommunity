@@ -1,17 +1,18 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Wheat, HeartPulse, Salad, CheckCircle2 } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
 import HeroBanner from "@/components/HeroBanner";
 import CTA from "@/components/CTA";
 import Disclaimer from "@/components/Disclaimer";
+import RelatedLinks from "@/components/RelatedLinks";
 
 export const metadata: Metadata = {
-  title: "मिलेट्स - मधुमेहासाठी उपयुक्त तृणधान्ये",
+  title: "मिलेट्स म्हणजे काय? प्रकार आणि आहारातील वापर",
   description:
     "मधुमेह व्यवस्थापनासाठी उपयुक्त मिलेट्स: बार्नयार्ड, नाचणी, कोदो, फॉक्सटेल, लिटल आणि ब्राऊनटॉप यांची माहिती.",
   keywords: ["मिलेट्स", "तृणधान्य", "मधुमेह", "नाचणी", "बार्नयार्ड"],
   openGraph: {
-    title: "मिलेट्स - मधुमेहासाठी उपयुक्त तृणधान्ये",
+    title: "मिलेट्स म्हणजे काय? प्रकार आणि आहारातील वापर",
     description:
       "मधुमेह असलेल्या व्यक्तींनी आहारात कोणती मिलेट्स कशी समाविष्ट करावी यावरील मार्गदर्शन.",
   },
@@ -71,7 +72,7 @@ export default function MilletsPage() {
       <div className="mt-8">
         <HeroBanner
           eyebrow="मिलेट्स"
-          title="मधुमेहासाठी उपयुक्त तृणधान्ये"
+          title="मिलेट्स म्हणजे काय? प्रकार आणि आहारातील वापर"
           description="मिलेट्समध्ये फायबर, खनिजे आणि सूक्ष्म पोषकद्रव्ये मुबलक असतात. संतुलित प्रमाणात आहारात समावेश केल्यास रक्तातील साखर नियंत्रणासाठी मदत होऊ शकते."
         />
       </div>
@@ -117,6 +118,14 @@ export default function MilletsPage() {
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">मिलेट + भाज्या + डाळ/प्रथिने असा थाळी पॅटर्न जास्त फायदेशीर ठरतो.</p>
         </div>
       </section>
+
+      <RelatedLinks
+        title="आहाराबद्दल पुढे काय वाचाल?"
+        links={[
+          { href: "/diabetes/diet", title: "मधुमेहासाठी आहार", description: "जेवणातील इतर पदार्थांसोबत मिलेट्सचा विचार कसा करावा ते समजून घ्या." },
+          { href: "/nutrition", title: "संतुलित आहार", description: "धान्ये, डाळी आणि भाज्या यांचा रोजच्या आहारातील सहभाग जाणून घ्या." },
+        ]}
+      />
 
       <div className="mt-12">
         <Disclaimer />

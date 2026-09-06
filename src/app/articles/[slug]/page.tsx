@@ -7,6 +7,9 @@ import Disclaimer from "@/components/Disclaimer";
 import { articles, getArticleBySlug } from "@/data/articles";
 import { resolveSiteUrl } from "@/lib/site-url";
 
+// Articles are maintained in the local catalogue and published at build time.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return articles.map((article) => ({ slug: article.slug }));
 }

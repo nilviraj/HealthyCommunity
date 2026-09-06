@@ -5,9 +5,11 @@ import { resolveSiteUrl } from "@/lib/site-url";
 const siteUrl = resolveSiteUrl();
 const configuredLastModified = process.env.SITEMAP_LAST_MODIFIED;
 const staticLastModifiedDates: Record<string, string> = {
-  "": "2026-09-05",
+  "": "2026-09-06",
   "/about": "2026-09-05",
-  "/articles": "2026-09-05",
+  "/articles": "2026-09-06",
+  "/millets": "2026-09-06",
+  "/microgreens": "2026-09-06",
 };
 
 const staticPaths = [
@@ -32,7 +34,6 @@ const staticPaths = [
   "/exercise",
   "/millets",
   "/microgreens",
-  "/forum",
   "/privacy",
   "/terms",
   "/cookie-policy",
