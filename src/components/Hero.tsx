@@ -16,7 +16,7 @@ const HealthyJourneyIllustration = dynamic(() => import("@/components/HealthyJou
   ),
 });
 
-const trustBadges = ["ICMR Inspired", "Evidence Based", "Marathi First", "Community Driven", "Free Resources"];
+const trustBadges = ["सोप्या मराठीत", "आरोग्यविषयक माहिती", "मोफत मार्गदर्शक"];
 
 export default function Hero() {
   return (
@@ -29,7 +29,7 @@ export default function Hero() {
         <div className="relative z-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/70 px-4 py-2 text-xs font-semibold text-slate-700 shadow-[0_10px_30px_-20px_rgba(15,23,42,0.7)] backdrop-blur sm:text-sm">
             <Sparkles className="h-4 w-4 text-[#22C55E]" />
-            महाराष्ट्रासाठी प्रीमियम हेल्थ कम्युनिटी अनुभव
+            महाराष्ट्रासाठी मराठीत आरोग्य माहिती
           </span>
 
           <h1 className="mt-6 max-w-2xl text-3xl font-semibold leading-[1.08] text-[#0F172A] sm:text-4xl lg:text-5xl xl:text-6xl">

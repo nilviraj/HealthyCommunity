@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
@@ -60,7 +60,7 @@ export default function Home() {
     "@type": "Organization",
     name: "आरोग्य समुदाय महाराष्ट्र",
     url: siteUrl,
-    logo: `${siteUrl}/favicon.ico`,
+    logo: `${siteUrl}/images/logo.jpeg`,
   };
 
   const websiteJsonLd = {
@@ -72,7 +72,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(34,197,94,0.08),_transparent_30%),linear-gradient(180deg,#f8fafc_0%,#ffffff_42%,#f8fafc_100%)] text-slate-800">
+    <main className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(34,197,94,0.08),_transparent_30%),linear-gradient(180deg,#f8fafc_0%,#ffffff_42%,#f8fafc_100%)] text-slate-800">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[28rem] bg-[radial-gradient(circle_at_20%_20%,rgba(34,197,94,0.12),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(37,99,235,0.08),transparent_26%)]" />
@@ -164,19 +164,19 @@ export default function Home() {
         <SectionTitle
           eyebrow="चर्चा मंच"
           title="समुदायात तुमचे अनुभव सामायिक करा"
-          description="प्रश्न, अनुभव आणि सल्ले यासाठी या मंचावर सहभागी व्हा."
+          description="समुदायात सहभागी होण्याची माहिती आणि उपयुक्त वाचन येथे पाहा."
         />
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {forumHighlights.map((item) => (
             <div key={item.title} className="rounded-[28px] border border-white/70 bg-white/85 p-6 shadow-[0_18px_50px_-35px_rgba(15,23,42,0.75)] backdrop-blur">
               <div className="flex items-center gap-2 text-[#22C55E]">
                 <Wind className="h-4 w-4" />
-                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Trending</span>
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">चर्चेचा विषय</span>
               </div>
               <h3 className="mt-4 text-lg font-semibold text-slate-900">{item.title}</h3>
               <p className="mt-2 text-sm leading-7 text-slate-600">{item.description}</p>
               <Link href="/forum" className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#0F172A] px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800">
-                चर्चा करा <ArrowRight className="h-4 w-4" />
+                सहभागाची माहिती <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           ))}
@@ -202,7 +202,7 @@ export default function Home() {
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#22C55E] px-6 py-3 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#16A34A]"
               >
                 <MessageCircle className="h-4 w-4" />
-                WhatsApp Community
+                WhatsApp समुदाय
               </Link>
               <Link href="/forum" className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 font-semibold text-slate-900 transition hover:-translate-y-0.5 hover:bg-slate-100">
                 समुदायात सामील व्हा
@@ -214,7 +214,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
 

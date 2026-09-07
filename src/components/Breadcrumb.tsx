@@ -17,7 +17,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
     "@type": "ListItem",
     position: index + 1,
     name: item.label,
-    item: `${siteUrl}${item.href ?? (index === 0 ? "/" : "")}`,
+    ...(item.href ? { item: new URL(item.href, siteUrl).toString() } : {}),
   }));
 
   const breadcrumbJsonLd = {
@@ -28,8 +28,8 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <nav aria-label="Breadcrumb" className="text-sm text-slate-600 dark:text-slate-400">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c") }} />
+      <nav aria-label="पृष्ठाचा मार्ग" className="text-sm text-slate-600 dark:text-slate-400">
         <ol className="flex flex-wrap items-center gap-2">
           {items.map((item, index) => (
             <li key={index} className="flex items-center gap-2">

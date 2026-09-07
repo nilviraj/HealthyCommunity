@@ -1,4 +1,5 @@
 const LOCAL_DEV_URL = "http://localhost:3000";
+const PRODUCTION_SITE_URL = "https://www.healthycommunity.in";
 let hasWarnedMissingSiteUrl = false;
 
 function normalizeSiteUrl(rawUrl: string) {
@@ -35,9 +36,10 @@ export function resolveSiteUrl() {
 
   if (process.env.NODE_ENV === "production") {
     if (!hasWarnedMissingSiteUrl) {
-      console.warn("NEXT_PUBLIC_SITE_URL is not configured. Falling back to localhost URL.");
+      console.warn("NEXT_PUBLIC_SITE_URL is not configured. Using the Healthy Community production domain.");
       hasWarnedMissingSiteUrl = true;
     }
+    return PRODUCTION_SITE_URL;
   }
 
   return LOCAL_DEV_URL;

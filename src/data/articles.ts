@@ -66,9 +66,9 @@ export const defaultArticleAuthor: ArticleAuthor = {
 };
 
 const defaultReviewStatus: ReviewStatus = {
-  label: "स्रोत-आधारित संपादकीय तपासणी",
+  label: "सामान्य आरोग्य माहिती",
   description:
-    "Healthy Community संपादकीय टीमने लेखातील प्रमुख दावे उपलब्ध विश्वासार्ह संदर्भांशी तुलना करून तपासले आहेत.",
+    "या लेखासाठी स्वतंत्र संदर्भाधारित तपासणीची नोंद उपलब्ध नाही. वैयक्तिक आरोग्यविषयक निर्णय घेण्यापूर्वी पात्र आरोग्यतज्ज्ञांचा सल्ला घ्या.",
   medicallyReviewed: false,
 };
 
