@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ArticleTrustPanel from "@/components/ArticleTrustPanel";
@@ -38,11 +39,24 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       publishedTime: article.publishedAt,
       modifiedTime: article.updatedAt,
       authors: [article.author.name],
+      ...(article.heroImage
+        ? {
+            images: [
+              {
+                url: article.heroImage.src,
+                width: article.heroImage.width,
+                height: article.heroImage.height,
+                alt: article.heroImage.alt,
+              },
+            ],
+          }
+        : {}),
     },
     twitter: {
       card: "summary_large_image",
       title: metadataTitle,
       description: article.excerpt,
+      ...(article.heroImage ? { images: [article.heroImage.src] } : {}),
     },
   };
 }
@@ -86,6 +100,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         url: `${siteUrl}/Healthy_Community_Logo.png`,
       },
     },
+    ...(article.heroImage ? { image: [`${siteUrl}${article.heroImage.src}`] } : {}),
     ...(article.references?.length
       ? { citation: article.references.map((reference) => reference.url) }
       : {}),
@@ -148,6 +163,25 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
             reviewStatus={article.reviewStatus}
             sourcesCount={article.references?.length ?? 0}
           />
+
+          {article.heroImage ? (
+            <figure className="mt-8 overflow-hidden rounded-3xl border border-emerald-100 bg-emerald-50">
+              <Image
+                src={article.heroImage.src}
+                alt={article.heroImage.alt}
+                width={article.heroImage.width}
+                height={article.heroImage.height}
+                sizes="(max-width: 1024px) calc(100vw - 2rem), 896px"
+                className="h-auto w-full object-cover"
+                preload
+              />
+              {article.heroImage.caption ? (
+                <figcaption className="px-4 py-3 text-sm leading-6 text-slate-600 sm:px-5">
+                  {article.heroImage.caption}
+                </figcaption>
+              ) : null}
+            </figure>
+          ) : null}
         </header>
 
         <div className="mt-10 space-y-10 text-base leading-8 text-slate-700">
@@ -168,6 +202,23 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                 </div>
+              ) : null}
+              {section.image ? (
+                <figure className="mt-5 overflow-hidden rounded-3xl border border-emerald-100 bg-emerald-50">
+                  <Image
+                    src={section.image.src}
+                    alt={section.image.alt}
+                    width={section.image.width}
+                    height={section.image.height}
+                    sizes="(max-width: 1024px) calc(100vw - 2rem), 896px"
+                    className="h-auto w-full object-cover"
+                  />
+                  {section.image.caption ? (
+                    <figcaption className="px-4 py-3 text-sm leading-6 text-slate-600 sm:px-5">
+                      {section.image.caption}
+                    </figcaption>
+                  ) : null}
+                </figure>
               ) : null}
               {section.items?.length ? (
                 section.items.some((item) => item.title) ? (

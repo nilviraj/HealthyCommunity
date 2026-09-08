@@ -7,7 +7,7 @@ const configuredLastModified = process.env.SITEMAP_LAST_MODIFIED;
 const staticLastModifiedDates: Record<string, string> = {
   "": "2026-09-06",
   "/about": "2026-09-05",
-  "/articles": "2026-09-06",
+  "/articles": "2026-09-08",
   "/millets": "2026-09-06",
   "/microgreens": "2026-09-06",
 };
