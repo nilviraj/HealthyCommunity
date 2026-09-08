@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Wheat, HeartPulse, Salad, CheckCircle2 } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
 import HeroBanner from "@/components/HeroBanner";
@@ -22,36 +23,64 @@ export const metadata: Metadata = {
 const milletHighlights = [
   {
     title: "बार्नयार्ड मिलेट (Barnyard Millet)",
+    imageSrc: "/images/millets/barnyard-millet.jpg",
+    imageAlt: "बार्नयार्ड मिलेट (Barnyard Millet) चे दाणे आणि कणसे",
+    imageCredit: "Roger Culos / Wikimedia Commons (CC BY-SA 4.0)",
+    imageSource:
+      "https://commons.wikimedia.org/wiki/File:Echinochloa_frumentacea_MHNT.BOT.2013.22.37.jpg",
     description:
       "बार्नयार्ड मिलेट (सांवा, समक तांदूळ, कुतिरावली) हे मधुमेहासाठी सर्वोत्तम मानल्या जाणाऱ्या तृणधान्यांपैकी एक आहे. यामध्ये भरपूर फायबर, प्रथिने, लोह, कॅल्शियम, मॅग्नेशियम आणि बी-समूह जीवनसत्त्वे आढळतात. याचा ग्लायसेमिक इंडेक्स (GI) पांढऱ्या तांदळापेक्षा कमी असल्यामुळे जेवणानंतर रक्तातील साखर झपाट्याने वाढत नाही. हे जास्त वेळ पोट भरल्यासारखे ठेवते, वजन नियंत्रणात मदत करते आणि पचन सुधारते. उपमा, खिचडी, पुलाव, पेज किंवा भाताच्या पर्याय म्हणून याचा वापर करता येतो. मधुमेह असलेल्या व्यक्तींनी आठवड्यातून २ ते ३ वेळा मर्यादित प्रमाणात सेवन करणे फायदेशीर ठरते."
   },
 
   {
     title: "नाचणी (Ragi / Finger Millet)",
+    imageSrc: "/images/millets/finger-millet.jpg",
+    imageAlt: "नाचणी किंवा फिंगर मिलेट (Finger Millet) ची कणसे आणि दाणे",
+    imageCredit: "Roger Culos / Wikimedia Commons (CC BY-SA 4.0)",
+    imageSource:
+      "https://commons.wikimedia.org/wiki/File:Eleusine_coracana_MHNT.BOT.2015.34.17.jpg",
     description:
       "नाचणी हे कॅल्शियम, लोह, फायबर आणि अँटिऑक्सिडंट्सने समृद्ध असलेले अत्यंत पौष्टिक धान्य आहे. हाडे मजबूत ठेवण्यासाठी हे सर्वोत्तम नैसर्गिक स्रोतांपैकी एक मानले जाते. फायबरमुळे अन्नाचे पचन हळूहळू होते, त्यामुळे रक्तातील साखर नियंत्रित राहण्यास मदत मिळते. तसेच वजन कमी करण्यासाठी, बद्धकोष्ठता कमी करण्यासाठी आणि दीर्घकाळ पोट भरल्यासारखे वाटण्यासाठी नाचणी उपयुक्त आहे. नाचणीची भाकरी, सत्त्व, डोसा, इडली किंवा रागी माल्ट स्वरूपात सेवन करता येते."
   },
 
   {
     title: "कोदो मिलेट (Kodo Millet)",
+    imageSrc: "/images/millets/kodo-millet.jpg",
+    imageAlt: "कोदो मिलेट (Kodo Millet) चे दाणे",
+    imageCredit: "Tonynirappathu / Wikimedia Commons (CC BY 4.0)",
+    imageSource: "https://commons.wikimedia.org/wiki/File:Kodo_Millet.jpg",
     description:
       "कोदो मिलेट (कोद्रा) हे उच्च फायबरयुक्त आणि कमी ग्लायसेमिक इंडेक्स असलेले तृणधान्य आहे. यामध्ये प्रथिने, लोह, मॅग्नेशियम, फॉस्फरस आणि अँटिऑक्सिडंट्स मुबलक प्रमाणात असतात. हे रक्तातील साखर नियंत्रित ठेवण्यास, पचन सुधारण्यास, वजन कमी करण्यास आणि हृदयाचे आरोग्य चांगले ठेवण्यास मदत करते. कोदो मिलेट भाताचा उत्तम पर्याय असून त्यापासून खिचडी, पुलाव, उपमा आणि पेज तयार करता येते. मधुमेह असलेल्या व्यक्तींनी आठवड्यातून २ वेळा याचा आहारात समावेश करावा."
   },
 
   {
     title: "फॉक्सटेल मिलेट (Foxtail Millet)",
+    imageSrc: "/images/millets/foxtail-millet.jpg",
+    imageAlt: "फॉक्सटेल मिलेट (Foxtail Millet) ची कणसे आणि दाणे",
+    imageCredit: "Roger Culos / Wikimedia Commons (CC BY-SA 4.0)",
+    imageSource:
+      "https://commons.wikimedia.org/wiki/File:Setaria_italica_MHNT.BOT.2015.34.19.jpg",
     description:
       "फॉक्सटेल मिलेट (कांगणी/काकूम) हे प्रथिने आणि फायबरचा उत्कृष्ट स्रोत आहे. यामध्ये लोह, मॅग्नेशियम, फॉस्फरस आणि बी-समूह जीवनसत्त्वे भरपूर प्रमाणात असतात. हे पचन सुधारते, ऊर्जा टिकवून ठेवते, वजन नियंत्रणात मदत करते आणि रक्तातील साखरेची पातळी स्थिर ठेवण्यास सहाय्य करते. सकाळच्या नाश्त्यासाठी उपमा, डोसा, इडली किंवा पुलाव बनवण्यासाठी हे उत्तम धान्य आहे. नियमित पण मर्यादित प्रमाणात सेवन केल्यास मधुमेह नियंत्रणासाठी फायदेशीर ठरते."
   },
 
   {
     title: "लिटल मिलेट (Little Millet)",
+    imageSrc: "/images/millets/little-millet.jpg",
+    imageAlt: "लिटल मिलेट (Little Millet) चे दाणे",
+    imageCredit: "Tonynirappathu / Wikimedia Commons (CC BY 4.0)",
+    imageSource: "https://commons.wikimedia.org/wiki/File:Little_Millet.jpg",
     description:
       "लिटल मिलेट (सामई/कुटकी) आकाराने लहान असले तरी पोषणमूल्यांनी समृद्ध आहे. यामध्ये फायबर, प्रथिने, लोह, मॅग्नेशियम, फॉस्फरस आणि अँटिऑक्सिडंट्स मुबलक प्रमाणात असतात. हे पचन सुधारते, दीर्घकाळ पोट भरल्याची भावना देते, रक्तातील साखर नियंत्रित ठेवण्यास मदत करते आणि हृदयाच्या आरोग्यासाठी लाभदायक आहे. यापासून उपमा, खिचडी, पुलाव, पेज आणि डोसा सहज बनवता येतो. आठवड्यातून १ ते २ वेळा सेवन केल्यास आरोग्यासाठी चांगला पर्याय ठरतो."
   },
 
   {
     title: "ब्राऊनटॉप मिलेट (Browntop Millet)",
+    imageSrc: "/images/millets/browntop-millet.jpg",
+    imageAlt: "ब्राऊनटॉप मिलेट (Browntop Millet) चे रोप आणि कणसे",
+    imageCredit: "Bat / Wikimedia Commons (CC0)",
+    imageSource:
+      "https://commons.wikimedia.org/wiki/File:Brachiaria_ramosa_from_Ambanja,_Madagascar.jpg",
     description:
       "ब्राऊनटॉप मिलेट हे सर्वाधिक फायबर असलेल्या तृणधान्यांपैकी एक आहे. यामध्ये लोह, मॅग्नेशियम, फॉस्फरस, प्रथिने आणि अँटिऑक्सिडंट्स भरपूर असतात. हे आतड्यांचे आरोग्य सुधारते, रक्तातील साखर हळूहळू वाढू देते, वजन नियंत्रणात मदत करते आणि दीर्घकाळ पोट भरल्यासारखे वाटते. याचा वापर उपमा, पुलाव, खिचडी किंवा पेज बनवण्यासाठी करता येतो. मधुमेह असलेल्या व्यक्तींनी आठवड्यातून १ वेळा याचा आहारात समावेश करावा."
   }
@@ -81,10 +110,34 @@ export default function MilletsPage() {
         {milletHighlights.map((item) => (
           <article
             key={item.title}
-            className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+            className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900"
           >
-            <h2 className="text-xl font-semibold text-slate-900 dark:text-white">{item.title}</h2>
-            <p className="mt-3 text-slate-700 dark:text-slate-300 leading-relaxed">{item.description}</p>
+            <figure>
+              <div className="relative aspect-[4/3] bg-slate-100 dark:bg-slate-800">
+                <Image
+                  src={item.imageSrc}
+                  alt={item.imageAlt}
+                  fill
+                  sizes="(min-width: 640px) 416px, calc(100vw - 32px)"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="px-5 pt-2 text-xs text-slate-500 dark:text-slate-400">
+                छायाचित्र:{" "}
+                <a
+                  href={item.imageSource}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline decoration-slate-300 underline-offset-2 hover:text-emerald-700 dark:decoration-slate-600 dark:hover:text-emerald-400"
+                >
+                  {item.imageCredit}
+                </a>
+              </figcaption>
+            </figure>
+            <div className="p-5 pt-3">
+              <h2 className="text-xl font-semibold text-slate-900 dark:text-white">{item.title}</h2>
+              <p className="mt-3 leading-relaxed text-slate-700 dark:text-slate-300">{item.description}</p>
+            </div>
           </article>
         ))}
       </section>
@@ -140,5 +193,4 @@ export default function MilletsPage() {
     </main>
   );
 }
-
 
