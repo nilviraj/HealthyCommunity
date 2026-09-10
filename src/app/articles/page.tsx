@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import ArticleSearchForm from "@/components/ArticleSearchForm";
 import SectionTitle from "@/components/SectionTitle";
 import { articles } from "@/data/articles";
 
@@ -34,7 +35,7 @@ function normalizeQuery(q?: string | string[]) {
 
 const guides = [
   { href: "/calculators/bmi", title: "BMI कॅल्क्युलेटर", excerpt: "उंची आणि वजनानुसार BMI मोजा.", category: "आरोग्य मोजणी", tags: ["bmi", "वजन", "उंची"] },
-  { href: "/calculators/water", title: "पाण्याच्या गरजेचा अंदाज", excerpt: "दैनंदिन पाणी सेवनाचा साधारण अंदाज घ्या.", category: "आरोग्य मोजणी", tags: ["water", "पाणी सेवन"] },
+  { href: "/calculators/water", title: "पाणी सेवन संदर्भ", excerpt: "पाणी व इतर पेयांच्या पर्याप्त सेवनाचा संदर्भ पाहा.", category: "आरोग्य मोजणी", tags: ["water", "पाणी सेवन"] },
   { href: "/calculators/calories", title: "कॅलरी कॅल्क्युलेटर", excerpt: "दैनंदिन ऊर्जेच्या गरजेचा अंदाज घ्या.", category: "आरोग्य मोजणी", tags: ["calories", "कॅलरी"] },
   { href: "/millets", title: "मिलेट्स म्हणजे काय?", excerpt: "मिलेट्सचे प्रकार आणि आहारातील वापर जाणून घ्या.", category: "पोषण", tags: ["millets", "नाचणी", "भरडधान्ये"] },
   { href: "/microgreens", title: "मायक्रोग्रीन्स घरी कसे वाढवावे?", excerpt: "कोवळ्या पालेभाज्यांची घरच्या घरी लागवड करण्याची माहिती.", category: "पोषण", tags: ["microgreens", "मायक्रोग्रीन्स", "बागकाम"] },
@@ -73,11 +74,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
         title="रोजच्या आरोग्यासाठी मराठीतून उपयुक्त माहिती"
         description="मधुमेह, हृदय, पोषण आणि व्यायाम या विषयांवरील लेख तुम्हाला घरगुती जीवनात सहज लागू करता येतील अशा पद्धतीने लिहिले आहेत."
       />
-      <form action="/articles" method="get" role="search" className="mt-6 flex flex-wrap gap-3">
-        <label htmlFor="article-search" className="w-full text-sm font-semibold text-slate-700">लेख आणि मार्गदर्शक शोधा</label>
-        <input id="article-search" name="q" type="search" defaultValue={q} placeholder="उदा. मधुमेह आहार, BMI, मिलेट्स" className="min-w-0 flex-1 rounded-xl border border-emerald-200 bg-white px-4 py-3 text-slate-900" />
-        <button type="submit" className="rounded-xl bg-emerald-700 px-5 py-3 font-semibold text-white">शोधा</button>
-      </form>
+      <ArticleSearchForm initialQuery={q} />
       {query ? (
         <p className="mt-4 text-sm text-slate-600">
           &ldquo;{q}&rdquo; साठी {new Intl.NumberFormat("mr-IN").format(results.length)} निकाल सापडले.
@@ -103,5 +100,3 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
     </main>
   );
 }
-
-

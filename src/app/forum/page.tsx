@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import SectionTitle from "@/components/SectionTitle";
+import TrackedCommunityLink from "@/components/TrackedCommunityLink";
 
 export const metadata: Metadata = {
   title: "चर्चा मंच",
@@ -36,12 +37,11 @@ export default function ForumPage() {
         description="या संकेतस्थळावर थेट प्रश्न किंवा प्रतिक्रिया लिहिण्याची सुविधा सध्या उपलब्ध नाही. समुदायात सहभागी होण्यासाठी खालील पर्याय वापरा."
       />
       <div className="mt-8 flex flex-wrap gap-4">
-        <a href="https://chat.whatsapp.com/Bmp0kLqqEfW6gRr6gipqOm" target="_blank" rel="noopener noreferrer" className="rounded-xl bg-emerald-700 px-5 py-3 font-semibold text-white">WhatsApp समुदाय पाहा</a>
+        <TrackedCommunityLink href="https://chat.whatsapp.com/Bmp0kLqqEfW6gRr6gipqOm" placement="forum" className="rounded-xl bg-emerald-700 px-5 py-3 font-semibold text-white">WhatsApp समुदाय पाहा</TrackedCommunityLink>
         <Link href="/contact" className="rounded-xl border border-emerald-200 bg-white px-5 py-3 font-semibold text-emerald-800">आमच्याशी संपर्क साधा</Link>
         <Link href="/articles" className="rounded-xl border border-emerald-200 bg-white px-5 py-3 font-semibold text-emerald-800">आरोग्य लेख वाचा</Link>
       </div>
     </main>
   );
 }
-
 
