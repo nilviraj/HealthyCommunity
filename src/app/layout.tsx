@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Geist } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AnalyticsPageView from "@/components/AnalyticsPageView";
 import { normalizeAdSenseClientId } from "@/lib/google-ids";
 import { resolveSiteUrl } from "@/lib/site-url";
 
@@ -73,6 +75,11 @@ export default function RootLayout({
               strategy="beforeInteractive"
             />
           </>
+        ) : null}
+        {gaMeasurementId ? (
+          <Suspense fallback={null}>
+            <AnalyticsPageView />
+          </Suspense>
         ) : null}
         <a href="#main-content" className="skip-link">
           मुख्य मजकुराकडे जा

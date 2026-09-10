@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
+import TrackedCommunityLink from "@/components/TrackedCommunityLink";
 import { ArrowRight, BookOpen, Dumbbell, HeartPulse, MessageCircle, ShieldCheck, Sparkles, Stethoscope, UtensilsCrossed, Wind } from "lucide-react";
 import { articles as allArticles } from "@/data/articles";
 import { resolveSiteUrl } from "@/lib/site-url";
@@ -42,7 +43,7 @@ const features = [
 const calculators = [
   { title: "BMI कॅल्क्युलेटर", href: "/calculators/bmi", description: "वजन आणि उंचीवर आधारित BMI तपासा." },
   { title: "मधुमेह जोखीम", href: "/calculators/diabetes-risk", description: "आपला जोखीम स्तर समजून घ्या." },
-  { title: "पाणी सेवन", href: "/calculators/water", description: "दैनिक पाण्याची गरज मोजा." },
+  { title: "पाणी सेवन", href: "/calculators/water", description: "दैनिक पर्याप्त सेवनाचा संदर्भ पाहा." },
   { title: "कॅलरी कॅल्क्युलेटर", href: "/calculators/calories", description: "दैनंदिन ऊर्जा गरजाची कल्पना मिळवा." },
 ];
 
@@ -195,15 +196,14 @@ export default function Home() {
             आरोग्य, पोषण आणि जीवनशैलीविषयी अधिक माहिती मिळवण्यासाठी आता सहभागी व्हा.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link
+              <TrackedCommunityLink
                 href="https://chat.whatsapp.com/Bmp0kLqqEfW6gRr6gipqOm"
-                target="_blank"
-                rel="noopener noreferrer"
+                placement="homepage-footer-cta"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#22C55E] px-6 py-3 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#16A34A]"
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp समुदाय
-              </Link>
+              </TrackedCommunityLink>
               <Link href="/forum" className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 font-semibold text-slate-900 transition hover:-translate-y-0.5 hover:bg-slate-100">
                 समुदायात सामील व्हा
               </Link>
@@ -217,4 +217,3 @@ export default function Home() {
     </main>
   );
 }
-

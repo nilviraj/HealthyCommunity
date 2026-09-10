@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "verify": "npm run verify:adsense && npm run verify:calculators",
+    "verify:adsense": "node scripts/verify-adsense.mjs",
+    "verify:calculators": "node --experimental-strip-types scripts/verify-calculators.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.43.0",
