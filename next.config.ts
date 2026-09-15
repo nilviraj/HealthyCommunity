@@ -31,6 +31,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/articles/diabetes-diet-tips-marathi",
+        destination: "/diabetes/diet",
+        permanent: true,
+      },
+      {
         source: "/:path*",
         has: [{ type: "host", value: "healthy-community-navy.vercel.app" }],
         destination: "https://www.healthycommunity.in/:path*",

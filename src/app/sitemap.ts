@@ -8,6 +8,7 @@ const staticLastModifiedDates: Record<string, string> = {
   "": "2026-09-06",
   "/about": "2026-09-05",
   "/articles": "2026-09-08",
+  "/diabetes/diet": "2026-09-15",
   "/millets": "2026-09-06",
   "/microgreens": "2026-09-06",
 };
