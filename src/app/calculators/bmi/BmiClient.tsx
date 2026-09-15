@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import CalculatorBackButton from "@/components/CalculatorBackButton";
 import { calculateBmi, getAdultBmiCategory } from "@/lib/health-calculators";
 import { trackEvent } from "@/lib/analytics";
 
@@ -13,6 +14,7 @@ export default function BmiClient() {
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+      <CalculatorBackButton />
       <div className="rounded-[2rem] border border-emerald-100 bg-white p-5 shadow-sm sm:p-8">
         <h1 className="text-3xl font-semibold text-slate-900">BMI कॅल्क्युलेटर</h1>
         <p className="mt-3 text-sm leading-7 text-slate-600">उंची आणि वजनानुसार BMI मोजा आणि आपल्या वजन श्रेणीबद्दल माहिती मिळवा.</p>
