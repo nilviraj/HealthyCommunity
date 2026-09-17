@@ -1,5 +1,6 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
+import ArticleImage from "@/components/ArticleImage";
 import HeroBanner from "@/components/HeroBanner";
 import MedicalTip from "@/components/MedicalTip";
 import RelatedLinks from "@/components/RelatedLinks";
@@ -7,21 +8,53 @@ import CTA from "@/components/CTA";
 import Disclaimer from "@/components/Disclaimer";
 
 export const metadata: Metadata = {
-  title: "मधुमेह निदान",
-  description: "मधुमेहाचे निदान - HbA1c, FBS, PPBS, OGTT परीक्षा आणि सामान्य स्तर.",
+  title: "मधुमेहाचे निदान: HbA1c आणि रक्ततपासण्या",
+  description: "HbA1c, उपाशीपोटी रक्तातील ग्लुकोज, OGTT आणि रँडम प्लाझ्मा ग्लुकोज या चाचण्यांनी मधुमेहाचे निदान कसे होते ते समजून घ्या.",
   alternates: { canonical: "/diabetes/diagnosis" },
   openGraph: {
-    title: "मधुमेह निदान",
-    description: "मधुमेहाचे निदान - HbA1c, FBS, PPBS, OGTT परीक्षा आणि सामान्य स्तर.",
+    title: "मधुमेहाचे निदान: HbA1c आणि रक्ततपासण्या",
+    description: "मधुमेह आणि प्रीडायबिटीज ओळखण्यासाठी वापरल्या जाणाऱ्या प्रमुख चाचण्या व त्यांचे निकष.",
     url: "/diabetes/diagnosis",
-    type: "website",
+    type: "article",
+    images: [{ url: "/images/diabetes/diagnosis-monitoring.webp", width: 1536, height: 1024, alt: "मधुमेहासाठी रक्ततपासणी आणि वैद्यकीय सल्ला" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "मधुमेह निदान",
-    description: "मधुमेहाचे निदान - HbA1c, FBS, PPBS, OGTT परीक्षा आणि सामान्य स्तर.",
+    title: "मधुमेहाचे निदान: HbA1c आणि रक्ततपासण्या",
+    description: "मधुमेह आणि प्रीडायबिटीज ओळखण्यासाठी वापरल्या जाणाऱ्या प्रमुख चाचण्या व त्यांचे निकष.",
+    images: ["/images/diabetes/diagnosis-monitoring.webp"],
   },
 };
+
+const diagnosticTests = [
+  {
+    name: "HbA1c",
+    detail: "मागील साधारण २ ते ३ महिन्यांतील रक्तातील ग्लुकोजची सरासरी स्थिती दाखवते. बहुतेक वेळा उपाशी राहण्याची गरज नसते.",
+    rows: [
+      ["सामान्य", "५.७% पेक्षा कमी"],
+      ["प्रीडायबिटीज", "५.७% ते ६.४%"],
+      ["मधुमेह", "६.५% किंवा अधिक"],
+    ],
+  },
+  {
+    name: "उपाशीपोटी प्लाझ्मा ग्लुकोज (FPG/FBS)",
+    detail: "किमान ८ तास काहीही न खाता केलेली रक्ततपासणी. पाणी पिता येते; औषधांबद्दल प्रयोगशाळा किंवा डॉक्टरांच्या सूचना पाळा.",
+    rows: [
+      ["सामान्य", "९९ mg/dL किंवा कमी"],
+      ["प्रीडायबिटीज", "१०० ते १२५ mg/dL"],
+      ["मधुमेह", "१२६ mg/dL किंवा अधिक"],
+    ],
+  },
+  {
+    name: "तोंडावाटे ग्लुकोज सहनशीलता चाचणी (OGTT)",
+    detail: "ठरावीक ग्लुकोज द्रावण घेतल्यानंतर २ तासांनी प्लाझ्मा ग्लुकोज तपासले जाते. ही चाचणी डॉक्टर किंवा प्रयोगशाळेच्या सूचनेनुसारच करा.",
+    rows: [
+      ["सामान्य", "१३९ mg/dL किंवा कमी"],
+      ["प्रीडायबिटीज", "१४० ते १९९ mg/dL"],
+      ["मधुमेह", "२०० mg/dL किंवा अधिक"],
+    ],
+  },
+];
 
 export default function DiagnosisPage() {
   return (
@@ -36,167 +69,88 @@ export default function DiagnosisPage() {
 
       <div className="mt-8">
         <HeroBanner
-          eyebrow="मधुमेह निदान"
-          title="मधुमेहाचे निदान कसे होते"
-          description="विविध परीक्षा आणि त्यांचे सामान्य स्तर समजून घ्या."
+          eyebrow="मधुमेहाचे निदान"
+          title="मधुमेहाचे निदान कसे होते?"
+          description="लक्षणांवरून किंवा घरच्या ग्लुकोमीटरच्या एका रीडिंगवरून निदान होत नाही. डॉक्टर प्रयोगशाळेतील रक्ततपासण्यांचा वापर करतात."
         />
       </div>
 
+      <ArticleImage
+        src="/images/diabetes/diagnosis-monitoring.webp"
+        alt="ग्लुकोमीटर आणि डॉक्टरांसोबत रक्तातील साखरेच्या निकालांवर चर्चा"
+        caption="एकच घरगुती रीडिंग म्हणजे निदान नाही; योग्य प्रयोगशाळा चाचण्या आणि डॉक्टरांचे मूल्यमापन आवश्यक असते."
+        priority
+      />
+
       <section className="mt-12 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">मुख्य परीक्षा</h2>
-          
+          <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">निदानासाठी वापरल्या जाणाऱ्या चाचण्या</h2>
           <div className="space-y-6">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">HbA1c (हेमोग्लोबिन A1c)</h3>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">पिछले 2-3 महीनातील सरासरी रक्त शर्करा</p>
-              <div className="mt-4 overflow-x-auto">
-                <table className="w-full text-sm">
-                  <tbody>
-                    <tr className="border-b border-slate-200 dark:border-slate-700">
-                      <td className="px-3 py-2 font-semibold">सामान्य</td>
-                      <td className="px-3 py-2">5.7% पेक्षा कम</td>
-                    </tr>
-                    <tr className="border-b border-slate-200 dark:border-slate-700">
-                      <td className="px-3 py-2 font-semibold">प्रीडायबिटीज</td>
-                      <td className="px-3 py-2">5.7% - 6.4%</td>
-                    </tr>
-                    <tr>
-                      <td className="px-3 py-2 font-semibold">मधुमेह</td>
-                      <td className="px-3 py-2">6.5% किंवा अधिक</td>
-                    </tr>
-                  </tbody>
-                </table>
+            {diagnosticTests.map((test) => (
+              <div key={test.name} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{test.name}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{test.detail}</p>
+                <div className="mt-4 overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <tbody>
+                      {test.rows.map(([label, value]) => (
+                        <tr key={label} className="border-b border-slate-200 last:border-0 dark:border-slate-700">
+                          <td className="px-3 py-2 font-semibold">{label}</td>
+                          <td className="px-3 py-2">{value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">FBS (उपवासातील रक्त शर्करा)</h3>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">8 तास उपवास नंतर रक्त शर्करा</p>
-              <div className="mt-4 overflow-x-auto">
-                <table className="w-full text-sm">
-                  <tbody>
-                    <tr className="border-b border-slate-200 dark:border-slate-700">
-                      <td className="px-3 py-2 font-semibold">सामान्य</td>
-                      <td className="px-3 py-2">70 - 100 mg/dL</td>
-                    </tr>
-                    <tr className="border-b border-slate-200 dark:border-slate-700">
-                      <td className="px-3 py-2 font-semibold">प्रीडायबिटीज</td>
-                      <td className="px-3 py-2">101 - 125 mg/dL</td>
-                    </tr>
-                    <tr>
-                      <td className="px-3 py-2 font-semibold">मधुमेह</td>
-                      <td className="px-3 py-2">126 mg/dL किंवा अधिक</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">PPBS (खाल्यानंतर रक्त शर्करा)</h3>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">भोजनानंतर 2 तास रक्त शर्करा</p>
-              <div className="mt-4 overflow-x-auto">
-                <table className="w-full text-sm">
-                  <tbody>
-                    <tr className="border-b border-slate-200 dark:border-slate-700">
-                      <td className="px-3 py-2 font-semibold">सामान्य</td>
-                      <td className="px-3 py-2">140 mg/dL पेक्षा कम</td>
-                    </tr>
-                    <tr className="border-b border-slate-200 dark:border-slate-700">
-                      <td className="px-3 py-2 font-semibold">प्रीडायबिटीज</td>
-                      <td className="px-3 py-2">140 - 199 mg/dL</td>
-                    </tr>
-                    <tr>
-                      <td className="px-3 py-2 font-semibold">मधुमेह</td>
-                      <td className="px-3 py-2">200 mg/dL किंवा अधिक</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">OGTT (ग्लूकोज सहिष्णुता परीक्षा)</h3>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">ग्लूकोज पिल्यानंतर 2 तास रक्त शर्करा</p>
-              <div className="mt-4 overflow-x-auto">
-                <table className="w-full text-sm">
-                  <tbody>
-                    <tr className="border-b border-slate-200 dark:border-slate-700">
-                      <td className="px-3 py-2 font-semibold">सामान्य</td>
-                      <td className="px-3 py-2">140 mg/dL पेक्षा कम</td>
-                    </tr>
-                    <tr>
-                      <td className="px-3 py-2 font-semibold">मधुमेह</td>
-                      <td className="px-3 py-2">200 mg/dL किंवा अधिक</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">RBS (यादृच्छिक रक्त शर्करा)</h3>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">कधी कसे परीक्षा घेतले जाते</p>
-              <div className="mt-4 overflow-x-auto">
-                <table className="w-full text-sm">
-                  <tbody>
-                    <tr className="border-b border-slate-200 dark:border-slate-700">
-                      <td className="px-3 py-2 font-semibold">सामान्य</td>
-                      <td className="px-3 py-2">140 mg/dL पेक्षा कम</td>
-                    </tr>
-                    <tr>
-                      <td className="px-3 py-2 font-semibold">मधुमेह संदेह</td>
-                      <td className="px-3 py-2">200 mg/dL किंवा अधिक (लक्षणांसह)</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
+        <div className="rounded-2xl border border-sky-200 bg-sky-50 p-6 dark:border-sky-800 dark:bg-sky-950/30">
+          <h2 className="text-xl font-bold text-sky-950 dark:text-sky-100">रँडम प्लाझ्मा ग्लुकोज चाचणी</h2>
+          <p className="mt-3 text-sm leading-7 text-sky-900 dark:text-sky-200">
+            वारंवार लघवी, सतत तहान किंवा विनाकारण वजन कमी होणे यांसारखी मधुमेहाची ठरावीक लक्षणे असताना रँडम प्लाझ्मा ग्लुकोज २०० mg/dL किंवा अधिक आल्यास डॉक्टर मधुमेहाचे निदान करू शकतात. लक्षणे नसतील तर साधारणपणे दुसऱ्या दिवशी किंवा दुसऱ्या चाचणीने निकालाची खात्री केली जाते.
+          </p>
+        </div>
+
+        <MedicalTip type="warning" title="PPBS आणि OGTT एकच चाचणी नाहीत">
+          नेहमीचे जेवण झाल्यानंतर केलेली PPBS तपासणी उपचारांचे निरीक्षण करण्यासाठी उपयोगी असू शकते. निदानासाठी वापरली जाणारी २ तासांची OGTT मात्र ठरावीक ग्लुकोज द्रावणासह नियंत्रित पद्धतीने केली जाते.
+        </MedicalTip>
+
         <section className="space-y-4">
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">परीक्षेच्या आधी तयारी</h2>
-          <div className="space-y-3">
-            <div className="rounded-2xl border border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/30 p-4">
-              <h4 className="font-semibold text-blue-900 dark:text-blue-200">FBS साठी</h4>
-              <p className="mt-2 text-sm text-blue-800 dark:text-blue-300">8-10 तास उपवास करा. सकाळी परीक्षा घेणे चांगले.</p>
-            </div>
-            <div className="rounded-2xl border border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-950/30 p-4">
-              <h4 className="font-semibold text-green-900 dark:text-green-200">PPBS साठी</h4>
-              <p className="mt-2 text-sm text-green-800 dark:text-green-300">सामान्य भोजन घ्या. भोजनानंतर अचूक 2 तास परीक्षा घेणे महत्त्वाचे.</p>
-            </div>
-            <div className="rounded-2xl border border-purple-200 bg-purple-50 dark:border-purple-800 dark:bg-purple-950/30 p-4">
-              <h4 className="font-semibold text-purple-900 dark:text-purple-200">OGTT साठी</h4>
-              <p className="mt-2 text-sm text-purple-800 dark:text-purple-300">8-10 तास उपवास करा. ग्लूकोज पिल्यानंतर 2 तास परीक्षा.</p>
-            </div>
-          </div>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">तपासणीपूर्वी काय लक्षात ठेवावे?</h2>
+          <ul className="space-y-3 rounded-2xl border border-slate-200 bg-white p-6 text-sm leading-7 text-slate-700 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
+            <li>• उपाशीपोटी चाचणी किंवा OGTT साठी डॉक्टर अथवा प्रयोगशाळेने सांगितलेला उपवास पाळा.</li>
+            <li>• सुरू असलेली औषधे स्वतः थांबवू नका; आधी डॉक्टरांना विचारा.</li>
+            <li>• आजारपण, गर्भावस्था, रक्तक्षय किंवा काही औषधांमुळे निकालांच्या अर्थावर परिणाम होऊ शकतो.</li>
+            <li>• गर्भावस्थेतील मधुमेहासाठी वेगळे निकष वापरले जातात.</li>
+          </ul>
         </section>
 
-        <MedicalTip type="important" title="निदान महत्त्वाचा आहे">
-          यदि आपल्याला मधुमेह आहे असा संदेह असेल, तर डॉक्टरांकडे जा. एक पूर्ण परीक्षा आवश्यक आहे. एकटी परीक्षा पुरेशी नाही.
+        <MedicalTip type="important" title="निकाल डॉक्टरांकडून समजून घ्या">
+          एकाच घरगुती रीडिंगवरून स्वतः निदान किंवा औषधबदल करू नका. तुमची लक्षणे, वैद्यकीय इतिहास आणि प्रयोगशाळेतील निकाल पाहून डॉक्टर निदान ठरवतात.
         </MedicalTip>
       </section>
 
       <RelatedLinks
         title="निदानानंतर पुढील पावले"
-        description="चाचण्यांनंतर व्यवस्थापन, देखरेख आणि माहितीपूर्ण वाचनासाठी हे दुवे वापरा."
+        description="चाचण्यांनंतर देखरेख, आहार आणि सामान्य प्रश्नांसाठी हे दुवे वापरा."
         links={[
           {
             href: "/diabetes/blood-sugar-monitoring",
-            title: "रक्त शर्करा मापन",
-            description: "घरच्या घरी साखर कशी तपासायची ते शिका.",
+            title: "रक्तातील साखरेची तपासणी",
+            description: "घरी ग्लुकोमीटर कधी आणि कसा वापरायचा ते समजून घ्या.",
           },
           {
             href: "/diabetes/diet",
-            title: "मधुमेह आहार",
-            description: "चाचण्यांनंतर आहार कसा बदलायचा ते समजून घ्या.",
+            title: "मधुमेहासाठी आहार",
+            description: "संतुलित ताट आणि योग्य प्रमाण निवडण्याची पद्धत पहा.",
           },
           {
             href: "/diabetes/faq",
-            title: "मधुमेह FAQ",
-            description: "निदान आणि उपचारांबद्दल सामान्य प्रश्नांची उत्तरे.",
+            title: "मधुमेहाबद्दल प्रश्न",
+            description: "निदान आणि उपचारांबद्दल सामान्य प्रश्नांची उत्तरे वाचा.",
           },
         ]}
       />
@@ -211,5 +165,3 @@ export default function DiagnosisPage() {
     </main>
   );
 }
-
-

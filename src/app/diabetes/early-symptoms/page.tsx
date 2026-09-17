@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
+import ArticleImage from "@/components/ArticleImage";
 import HeroBanner from "@/components/HeroBanner";
 import MedicalTip from "@/components/MedicalTip";
 import RelatedLinks from "@/components/RelatedLinks";
@@ -8,91 +9,93 @@ import CTA from "@/components/CTA";
 import Disclaimer from "@/components/Disclaimer";
 
 export const metadata: Metadata = {
-  title: "मधुमेहाचे सुरुवातीचे लक्षणे",
-  description: "मधुमेहाच्या सुरुवातीच्या लक्षणे, थकवा, प्यास, वारंवार प्रस्राव आणि इतर चेतावणी संकेते.",
-  keywords: ["मधुमेह लक्षणे", "थकवा", "प्यास", "प्रस्राव"],
+  title: "मधुमेहाची सुरुवातीची लक्षणे",
+  description: "वारंवार लघवी होणे, सतत तहान लागणे, थकवा, वजन कमी होणे आणि मधुमेहाची इतर संभाव्य लक्षणे समजून घ्या.",
+  keywords: ["मधुमेहाची लक्षणे", "थकवा", "तहान", "वारंवार लघवी"],
   alternates: { canonical: "/diabetes/early-symptoms" },
   openGraph: {
-    title: "मधुमेहाचे सुरुवातीचे लक्षणे",
-    description: "मधुमेहाच्या सुरुवातीच्या लक्षणे, थकवा, प्यास, वारंवार प्रस्राव आणि इतर चेतावणी संकेते.",
+    title: "मधुमेहाची सुरुवातीची लक्षणे",
+    description: "वारंवार लघवी होणे, सतत तहान लागणे, थकवा आणि मधुमेहाची इतर संभाव्य लक्षणे.",
     url: "/diabetes/early-symptoms",
     type: "website",
+    images: [{ url: "/images/diabetes/early-symptoms.webp", width: 1536, height: 1024, alt: "मधुमेहाची संभाव्य सुरुवातीची लक्षणे" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "मधुमेहाचे सुरुवातीचे लक्षणे",
-    description: "मधुमेहाच्या सुरुवातीच्या लक्षणे, थकवा, प्यास, वारंवार प्रस्राव आणि इतर चेतावणी संकेते.",
+    title: "मधुमेहाची सुरुवातीची लक्षणे",
+    description: "वारंवार लघवी होणे, सतत तहान लागणे, थकवा आणि मधुमेहाची इतर संभाव्य लक्षणे.",
+    images: ["/images/diabetes/early-symptoms.webp"],
   },
 };
 
 export default function EarlySymptomPage() {
   const symptoms = [
     {
-      title: "थकवा आणि आलस",
-      description: "अचानक अत्यधिक थकवा जो विश्रांतीसह ठीक होत नाही. कोणत्याही कामात व्याजपणा आणि शक्तीची कमतरता.",
+      title: "सतत थकवा जाणवणे",
+      description: "पुरेशी विश्रांती घेतल्यानंतरही नेहमीपेक्षा जास्त थकवा किंवा ऊर्जा कमी वाटणे.",
     },
     {
-      title: "कमजोरी",
-      description: "शरीरात सामान्य कमजोरी आणि ऊर्जेचा अभाव. मांसपेशीमध्ये दुर्बलता आणि थकवा.",
+      title: "अशक्तपणा",
+      description: "दैनंदिन काम करताना शरीरात अशक्तपणा किंवा स्नायूंमध्ये ताकद कमी वाटणे.",
     },
     {
-      title: "वारंवार प्रस्राव",
-      description: "दिवसातून सामान्यपेक्षा जास्त वेळा प्रस्राव जाणे, विशेषतः रात्रीच्या वेळी.",
+      title: "वारंवार लघवी होणे",
+      description: "नेहमीपेक्षा जास्त वेळा लघवीला जावे लागणे, विशेषतः रात्री वारंवार उठावे लागणे.",
     },
     {
-      title: "अत्यधिक प्यास",
-      description: "अपरिपूर्ण प्यास जो खूप पाणी पिल्यानंतरही दूर होत नाही.",
+      title: "सतत तहान लागणे",
+      description: "पाणी प्यायल्यानंतरही वारंवार किंवा नेहमीपेक्षा जास्त तहान लागणे.",
     },
     {
       title: "वारंवार भूक",
-      description: "नियमितपणे खाना खाल्यानंतरही भूक लागणे. अत्यधिक खाण्याची इच्छा.",
+      description: "जेवल्यानंतरही लवकर भूक लागणे किंवा नेहमीपेक्षा जास्त भूक जाणवणे.",
     },
     {
-      title: "अस्पष्ट दृष्टि",
-      description: "दृष्टी स्पष्ट नसणे किंवा धुकेमुळे दिसणे. लक्ष केंद्रित करण्यात अडचण.",
+      title: "दृष्टी धूसर होणे",
+      description: "समोरचे स्पष्ट न दिसणे किंवा अधूनमधून दृष्टी धूसर होणे.",
     },
     {
       title: "वजन कमी होणे",
-      description: "स्पष्टीकरण न मिळालेला वजन कमी होणे, विशेषतः टाइप 1 मधुमेहात.",
+      description: "आहार किंवा हालचालीत बदल नसतानाही वजन कमी होणे, विशेषतः टाइप १ मधुमेहात.",
     },
     {
-      title: "धीमे जखमांचे उपचार",
-      description: "कापल्या किंवा जखमांचे सामान्यपेक्षा धीमे उपचार. संक्रमण होण्याचा जोखीम वाढणे.",
+      title: "जखम उशिरा भरून येणे",
+      description: "कापलेली जागा किंवा छोटी जखम नेहमीपेक्षा उशिरा भरून येणे.",
     },
     {
-      title: "त्वचा संक्रमण",
-      description: "बार-बार त्वचा संक्रमण, खाज, किंवा व्यथा. जीवाणू संक्रमण होण्याचा जोखीम.",
+      title: "वारंवार संसर्ग होणे",
+      description: "त्वचा, हिरड्या, मूत्रमार्ग किंवा इतर ठिकाणी वारंवार संसर्ग होणे.",
     },
     {
-      title: "खुश्क त्वचा",
-      description: "त्वचा अत्यधिक कोरड्या आणि खुजलीयुक्त असणे.",
+      title: "कोरडी किंवा खाज येणारी त्वचा",
+      description: "त्वचा नेहमीपेक्षा कोरडी होणे किंवा वारंवार खाज येणे.",
     },
     {
-      title: "तंत्रिका समस्या",
-      description: "हातांच्या किंवा पायांमध्ये झनझनाहट किंवा सुन्नपणा.",
+      title: "हात-पायांना मुंग्या येणे",
+      description: "हात किंवा पाय सुन्न होणे, मुंग्या येणे किंवा जळजळ जाणवणे.",
     },
     {
-      title: "तीव्र संक्रमण",
-      description: "योनिमार्गातील संक्रमण (महिलांमध्ये) किंवा अन्य संक्रमण.",
+      title: "यीस्ट संसर्ग",
+      description: "महिला किंवा पुरुषांमध्ये वारंवार जननेंद्रियाजवळ यीस्ट संसर्ग होणे.",
     },
   ];
 
   const faqItems = [
     {
       question: "या लक्षणांचा अर्थ मधुमेह आहे का?",
-      answer: "असो काही लक्षणे मधुमेहाशी संबंधित असू शकतात, परंतु याचा मतलब नक्की आहे असे नाही. अन्य स्थिती देखील समान लक्षणे देऊ शकते. डॉक्टरांचा सल्ला घ्या आणि रक्त परीक्षा करवा.",
+      answer: "नाही. ही लक्षणे मधुमेहात दिसू शकतात, पण इतर आजारांमुळेही होऊ शकतात. मधुमेहाचे निदान केवळ योग्य रक्ततपासणीने होते.",
     },
     {
       question: "मधुमेह कोणत्या वयात होऊ शकतो?",
-      answer: "टाइप 1 सामान्यतः बाल्यावस्थात किंवा तरुणाईत होतो. टाइप 2 सामान्यतः 45 वर्षांपेक्षा जास्त वयात होतो, परंतु तरुणांमध्येही हो शकतो.",
+      answer: "मधुमेह कोणत्याही वयात होऊ शकतो. टाइप १ लहानपणी अधिक आढळतो, पण प्रौढांनाही होऊ शकतो. टाइप २ प्रौढांमध्ये अधिक आढळतो, मात्र तो तरुणांमध्येही दिसतो.",
     },
     {
-      question: "काही लोकांमध्ये कोणतेही लक्षणे नाहीत का?",
-      answer: "होय, अनेक लोकांमध्ये लक्षणे असत नाहीत, विशेषतः टाइप 2 मधुमेहात. त्यामुळे नियमित तपासणी महत्त्वाची आहे.",
+      question: "काही लोकांना कोणतीही लक्षणे नसतात का?",
+      answer: "होय. विशेषतः टाइप २ मधुमेहात अनेकांना बराच काळ स्पष्ट लक्षणे जाणवत नाहीत. जोखीम जास्त असल्यास डॉक्टरांच्या सल्ल्याने तपासणी करणे महत्त्वाचे आहे.",
     },
     {
       question: "या लक्षणांसाठी डॉक्टरांकडे कधी जावे?",
-      answer: "जर तुमच्यात हे लक्षणे आहेत: अचानक थकवा, वारंवार प्रस्राव, अत्यधिक प्यास, किंवा वजन कमी होणे, तर लगेच डॉक्टरांकडे जा.",
+      answer: "वारंवार लघवी, सतत तहान, विनाकारण वजन कमी होणे किंवा दृष्टी धूसर होणे अशी लक्षणे टिकून राहिल्यास डॉक्टरांकडून तपासणी करून घ्या. उलट्या, पोटदुखी, वेगाने श्वास घेणे, गुंगी किंवा गोंधळ असल्यास तातडीची वैद्यकीय मदत घ्या.",
     },
   ];
 
@@ -102,24 +105,31 @@ export default function EarlySymptomPage() {
         items={[
           { label: "मुख्यपृष्ठ", href: "/" },
           { label: "मधुमेह माहिती", href: "/diabetes" },
-          { label: "सुरुवातीचे लक्षणे" },
+          { label: "सुरुवातीची लक्षणे" },
         ]}
       />
 
       <div className="mt-8">
         <HeroBanner
           eyebrow="मधुमेह लक्षणे"
-          title="मधुमेहाचे सुरुवातीचे लक्षणे"
-          description="मधुमेहाची चेतावणी संकेते जाणून घ्या आणि लगेच डॉक्टरांना मिळा."
+          title="मधुमेहाची सुरुवातीची लक्षणे"
+          description="संभाव्य लक्षणे ओळखा; खात्री करण्यासाठी डॉक्टरांच्या सल्ल्याने रक्ततपासणी करा."
         />
       </div>
 
+      <ArticleImage
+        src="/images/diabetes/early-symptoms.webp"
+        alt="वारंवार तहान, थकवा आणि अस्पष्ट दिसणे अशी संभाव्य लक्षणे जाणवणारी व्यक्ती"
+        caption="जास्त तहान, वारंवार लघवी, थकवा किंवा अस्पष्ट दिसणे अशी लक्षणे आढळल्यास तपासणीसाठी डॉक्टरांचा सल्ला घ्या."
+        priority
+      />
+
       <MedicalTip type="warning" title="महत्त्वाचे - लक्षणे भिन्न असू शकतात">
-        लक्षणे प्रत्येक व्यक्तीमध्ये भिन्न असतात. काही लोकांमध्ये एक किंवा दोन लक्षणे असू शकतात, तर काहींमध्ये एकापेक्षा जास्त. काही लोकांमध्ये सुरुवातीच्या मधुमेहात कोणतेही स्पष्ट लक्षणे नाहीत.
+        प्रत्येक व्यक्तीमध्ये लक्षणे वेगळी असू शकतात. विशेषतः टाइप २ मधुमेहात सुरुवातीला कोणतीही स्पष्ट लक्षणे नसू शकतात. लक्षणांवरून स्वतः निदान करू नका.
       </MedicalTip>
 
       <div className="mt-12">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">मधुमेहाचे 12 मुख्य लक्षणे</h2>
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">मधुमेहाची १२ संभाव्य लक्षणे</h2>
         <div className="grid gap-6 md:grid-cols-2">
           {symptoms.map((symptom, index) => (
             <div key={index} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
@@ -138,9 +148,9 @@ export default function EarlySymptomPage() {
       </div>
 
       <section className="mt-12 space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">कधी डॉक्टरांना मिळावे?</h2>
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">डॉक्टरांना कधी भेटावे?</h2>
         <div className="rounded-2xl border-2 border-red-300 bg-red-50 dark:border-red-800 dark:bg-red-950/30 p-6">
-          <h3 className="font-semibold text-red-900 dark:text-red-200">लगेच डॉक्टरांकडे जा जर तुमच्यात असे लक्षणे आहेत:</h3>
+          <h3 className="font-semibold text-red-900 dark:text-red-200">ही लक्षणे टिकून राहिल्यास तपासणी करून घ्या:</h3>
           <ul className="mt-4 space-y-3">
             <li className="flex gap-3">
               <span className="font-bold text-red-600">✗</span>
@@ -148,19 +158,19 @@ export default function EarlySymptomPage() {
             </li>
             <li className="flex gap-3">
               <span className="font-bold text-red-600">✗</span>
-              <span className="text-red-800 dark:text-red-300">रात्री वारंवार प्रस्राव जाणे</span>
+              <span className="text-red-800 dark:text-red-300">वारंवार लघवी होणे आणि सतत तहान लागणे</span>
             </li>
             <li className="flex gap-3">
               <span className="font-bold text-red-600">✗</span>
-              <span className="text-red-800 dark:text-red-300">अस्पष्टीकृत वजन कमी होणे</span>
+              <span className="text-red-800 dark:text-red-300">विनाकारण वजन कमी होणे</span>
             </li>
             <li className="flex gap-3">
               <span className="font-bold text-red-600">✗</span>
-              <span className="text-red-800 dark:text-red-300">दृष्टी अचानक खराब होणे</span>
+              <span className="text-red-800 dark:text-red-300">दृष्टी धूसर होणे</span>
             </li>
             <li className="flex gap-3">
               <span className="font-bold text-red-600">✗</span>
-              <span className="text-red-800 dark:text-red-300">बार-बार संक्रमण</span>
+              <span className="text-red-800 dark:text-red-300">जखम उशिरा भरणे किंवा वारंवार संसर्ग होणे</span>
             </li>
           </ul>
         </div>
@@ -178,11 +188,11 @@ export default function EarlySymptomPage() {
                {
                  href: "/diabetes/what-is-diabetes",
                  title: "मधुमेह म्हणजे काय",
-                 description: "रक्त शर्करा आणि इन्सुलीनची मूलभूत संकल्पना.",
+                 description: "रक्तातील साखर आणि इन्सुलिनची मूलभूत माहिती.",
                },
                {
                  href: "/diabetes/causes",
-                 title: "मधुमेहाचे कारणे",
+                 title: "मधुमेहाची कारणे",
                  description: "जोखीम घटक आणि जीवनशैलीशी संबंधित कारणे.",
                },
                {
@@ -203,5 +213,3 @@ export default function EarlySymptomPage() {
     </main>
   );
 }
-
-

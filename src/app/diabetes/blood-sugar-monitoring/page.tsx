@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import RelatedLinks from "@/components/RelatedLinks";
+import ArticleImage from "@/components/ArticleImage";
 import Breadcrumb from "@/components/Breadcrumb";
 import HeroBanner from "@/components/HeroBanner";
 import MedicalTip from "@/components/MedicalTip";
@@ -7,32 +8,34 @@ import CTA from "@/components/CTA";
 import Disclaimer from "@/components/Disclaimer";
 
 export const metadata: Metadata = {
-	title: "रक्त शर्करा निरीक्षण",
-	description: "रक्त शर्करा कधी, कशी आणि किती वेळा तपासावी याचे सोपे मार्गदर्शन.",
+	title: "घरी रक्तातील साखरेची तपासणी",
+	description: "ग्लुकोमीटरने रक्तातील साखर कशी तपासावी, रीडिंगची नोंद कशी ठेवावी आणि लक्ष्य मर्यादा वैयक्तिक का असतात ते समजून घ्या.",
   alternates: { canonical: "/diabetes/blood-sugar-monitoring" },
 	openGraph: {
-		title: "रक्त शर्करा निरीक्षण",
-		description: "रक्त शर्करा कधी, कशी आणि किती वेळा तपासावी याचे सोपे मार्गदर्शन.",
+		title: "घरी रक्तातील साखरेची तपासणी",
+		description: "ग्लुकोमीटरचा योग्य वापर, रीडिंगची नोंद आणि वैयक्तिक लक्ष्य मर्यादा.",
 		url: "/diabetes/blood-sugar-monitoring",
 		type: "website",
+		images: [{ url: "/images/diabetes/diagnosis-monitoring.webp", width: 1536, height: 1024, alt: "ग्लुकोमीटरने रक्तातील साखरेची तपासणी" }],
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "रक्त शर्करा निरीक्षण",
-		description: "रक्त शर्करा कधी, कशी आणि किती वेळा तपासावी याचे सोपे मार्गदर्शन.",
+		title: "घरी रक्तातील साखरेची तपासणी",
+		description: "ग्लुकोमीटरचा योग्य वापर, रीडिंगची नोंद आणि वैयक्तिक लक्ष्य मर्यादा.",
+		images: ["/images/diabetes/diagnosis-monitoring.webp"],
 	},
 };
 
 const monitoringTimes = [
-	{ label: "उपवास (FBS)", detail: "सकाळी नाश्त्यापूर्वी रक्त शर्करा तपासा." },
-	{ label: "भोजनानंतर (PPBS)", detail: "भोजनानंतर सुमारे 2 तासांनी तपासणी करा." },
-	{ label: "झोपण्यापूर्वी", detail: "रात्रीचे नियंत्रण समजण्यासाठी एक रीडिंग उपयोगी ठरते." },
-	{ label: "लक्षणे दिसल्यास", detail: "घाम येणे, चक्कर, थकवा यावेळी अतिरिक्त रीडिंग घ्या." },
+	{ label: "उपाशीपोटी", detail: "डॉक्टरांनी सांगितल्यास सकाळी काहीही खाण्यापूर्वी तपासा." },
+	{ label: "जेवणानंतर", detail: "डॉक्टरांनी सांगितलेल्या वेळेनुसार, बहुतेकदा जेवण सुरू केल्यापासून १ ते २ तासांनी तपासा." },
+	{ label: "झोपण्यापूर्वी", detail: "इन्सुलिन किंवा काही औषधांनुसार झोपण्यापूर्वीचे रीडिंग आवश्यक असू शकते." },
+	{ label: "लक्षणे दिसल्यास", detail: "घाम, थरथर, चक्कर, गोंधळ किंवा नेहमीपेक्षा जास्त तहान जाणवल्यास तपासणी उपयोगी ठरू शकते." },
 ];
 
 const targetRanges = [
-	{ type: "उपवास", value: "80 - 130 mg/dL" },
-	{ type: "भोजनानंतर 2 तास", value: "180 mg/dL पेक्षा कमी" },
+	{ type: "जेवणापूर्वी", value: "८०–१३० mg/dL" },
+	{ type: "जेवण सुरू केल्यानंतर १–२ तास", value: "१८० mg/dL पेक्षा कमी" },
 ];
 
 export default function BloodSugarMonitoringPage() {
@@ -42,21 +45,28 @@ export default function BloodSugarMonitoringPage() {
 				items={[
 					{ label: "मुख्यपृष्ठ", href: "/" },
 					{ label: "मधुमेह माहिती", href: "/diabetes" },
-					{ label: "रक्त शर्करा निरीक्षण" },
+					{ label: "रक्तातील साखरेची तपासणी" },
 				]}
 			/>
 
 			<div className="mt-8">
 				<HeroBanner
-					eyebrow="दैनिक निरीक्षण"
-					title="रक्त शर्करा निरीक्षण कसे करावे"
-					description="नियमित तपासणीमुळे औषधे, आहार आणि व्यायामाचा परिणाम समजणे सोपे जाते."
+					eyebrow="घरच्या घरी तपासणी"
+					title="ग्लुकोमीटरने रक्तातील साखर कशी तपासावी?"
+					description="तपासणीची वेळ आणि वारंवारता प्रत्येकासाठी वेगळी असते. तुमची योजना डॉक्टरांकडून ठरवून घ्या."
 				/>
 			</div>
 
+			<ArticleImage
+				src="/images/diabetes/diagnosis-monitoring.webp"
+				alt="ग्लुकोमीटरने रक्तातील साखर तपासताना डॉक्टरांशी नोंदींबद्दल चर्चा"
+				caption="तपासणीची वेळ, वारंवारता आणि लक्ष्य मर्यादा तुमच्या उपचारयोजनेनुसार डॉक्टरांकडून ठरवून घ्या."
+				priority
+			/>
+
 			<section className="mt-12 space-y-8">
 				<div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-					<h2 className="text-2xl font-bold text-slate-900 dark:text-white">तपासणीची योग्य वेळ</h2>
+					<h2 className="text-2xl font-bold text-slate-900 dark:text-white">तपासणी कधी करावी?</h2>
 					<div className="mt-5 grid gap-4 sm:grid-cols-2">
 						{monitoringTimes.map((item) => (
 							<div key={item.label} className="rounded-xl border border-emerald-100 bg-emerald-50 p-4 dark:border-emerald-800 dark:bg-emerald-950/30">
@@ -68,7 +78,8 @@ export default function BloodSugarMonitoringPage() {
 				</div>
 
 				<div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-					<h2 className="text-2xl font-bold text-slate-900 dark:text-white">सामान्य लक्ष्य स्तर</h2>
+					<h2 className="text-2xl font-bold text-slate-900 dark:text-white">बहुतेक गर्भवती नसलेल्या प्रौढांसाठी सामान्य लक्ष्य</h2>
+					<p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">ही फक्त सामान्य उदाहरणे आहेत. वय, गर्भावस्था, औषधे, इतर आजार आणि कमी साखरेचा धोका यानुसार तुमचे लक्ष्य वेगळे असू शकते.</p>
 					<div className="mt-4 overflow-x-auto">
 						<table className="w-full text-sm">
 							<tbody>
@@ -83,8 +94,18 @@ export default function BloodSugarMonitoringPage() {
 					</div>
 				</div>
 
+				<div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+					<h2 className="text-2xl font-bold text-slate-900 dark:text-white">योग्य पद्धत</h2>
+					<ol className="mt-4 space-y-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
+						<li>१. हात साबणाने धुऊन पूर्ण कोरडे करा.</li>
+						<li>२. नवीन लॅन्सेट आणि कालबाह्य न झालेली टेस्ट स्ट्रिप वापरा.</li>
+						<li>३. मीटरच्या सूचनेनुसार बोटाच्या बाजूला टोचून रक्ताचा थेंब स्ट्रिपवर लावा.</li>
+						<li>४. वापरलेले लॅन्सेट सुरक्षित धारदार कचरा डब्यात टाका; ते इतरांसोबत वापरू नका.</li>
+					</ol>
+				</div>
+
 				<MedicalTip type="important" title="रीडिंगची नोंद ठेवा">
-					तारीख, वेळ, भोजनाची माहिती आणि औषधांसह रीडिंग लिहून ठेवल्यास डॉक्टरांना उपचार समायोजित करणे सोपे होते.
+					तारीख, वेळ, जेवण, औषध किंवा इन्सुलिन, हालचाल आणि जाणवलेली लक्षणे यांसह रीडिंग लिहून ठेवा. एकच रीडिंग पाहून औषध बदलू नका; वारंवार असामान्य रीडिंग आल्यास डॉक्टरांशी संपर्क साधा.
 				</MedicalTip>
 
 				<RelatedLinks
@@ -120,5 +141,3 @@ export default function BloodSugarMonitoringPage() {
 		</main>
 	);
 }
-
-

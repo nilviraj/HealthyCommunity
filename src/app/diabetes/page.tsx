@@ -2,18 +2,26 @@
 import Link from "next/link";
 import { ArrowRight, BookOpen, Droplets, Heart, Lightbulb, Pill, Utensils, Zap } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
+import ArticleImage from "@/components/ArticleImage";
 import HeroBanner from "@/components/HeroBanner";
 import CTA from "@/components/CTA";
 import Disclaimer from "@/components/Disclaimer";
 
 export const metadata: Metadata = {
   title: "मधुमेह माहिती",
-  description: "मधुमेह व्यवस्थापन, लक्षणे, कारणे, आहार, व्यायाम आणि दैनंदिन जीवनशैलीबाबत संपूर्ण मार्गदर्शन.",
-  keywords: ["मधुमेह", "डायबिटीज", "रक्त शर्करा", "स्वास्थ्य", "आहार"],
+  description: "मधुमेहाची लक्षणे, कारणे, तपासण्या, आहार, व्यायाम आणि दैनंदिन काळजी यांची सोप्या मराठीत माहिती.",
+  keywords: ["मधुमेह", "डायबिटीज", "रक्तातील साखर", "आरोग्य", "आहार"],
   openGraph: {
     title: "मधुमेह माहिती",
-    description: "मधुमेह व्यवस्थापन आणि निरोगी जीवनशैलीचे संपूर्ण मार्गदर्शन",
+    description: "मधुमेह समजून घेण्यासाठी आणि दैनंदिन काळजीसाठी सोपे मराठी मार्गदर्शन",
     type: "website",
+    images: [{ url: "/images/diabetes/overview.webp", width: 1536, height: 1024, alt: "मधुमेह व्यवस्थापनासाठी आरोग्यदायी सवयी" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "मधुमेह माहिती",
+    description: "मधुमेह समजून घेण्यासाठी आणि दैनंदिन काळजीसाठी सोपे मराठी मार्गदर्शन",
+    images: ["/images/diabetes/overview.webp"],
   },
   alternates: { canonical: "/diabetes" },
 };
@@ -46,13 +54,13 @@ const sections = [
   {
     href: "/diabetes/diagnosis",
     title: "मधुमेहाचे निदान",
-    description: "FBS, PPBS, HbA1c, OGTT यांसारख्या चाचण्या, त्यांचे सामान्य मूल्य आणि मधुमेहाचे निदान कसे केले जाते ते समजून घ्या.",
+    description: "HbA1c, उपाशीपोटी रक्तातील ग्लुकोज आणि OGTT यांसारख्या चाचण्यांद्वारे मधुमेहाचे निदान कसे होते ते समजून घ्या.",
     icon: Droplets,
   },
   {
     href: "/diabetes/diet",
     title: "आहार आणि पोषण",
-    description: "मधुमेहासाठी योग्य आहार, संतुलित पोषण, प्लेट पद्धत, मिलेट्स, फळे, भाज्या आणि दैनंदिन आहार नियोजनाविषयी सविस्तर माहिती.",
+    description: "संतुलित ताट, भात-पोळीचे प्रमाण, फळे, भाज्या आणि महाराष्ट्रातील घरगुती पदार्थांबद्दल व्यावहारिक माहिती.",
     icon: Utensils,
   },
   {
@@ -64,7 +72,7 @@ const sections = [
   {
     href: "/diabetes/daily-routine",
     title: "दैनंदिन दिनचर्या",
-    description: "मधुमेह नियंत्रणासाठी सकाळपासून रात्रीपर्यंतच्या निरोगी सवयी, आहार, व्यायाम आणि औषधांचे योग्य नियोजन.",
+    description: "औषधे, जेवण, हालचाल, तपासणी आणि झोप यांची सुरक्षित व लवचिक दिनचर्या कशी ठेवावी ते समजून घ्या.",
     icon: BookOpen,
   },
   {
@@ -82,13 +90,13 @@ const sections = [
   {
     href: "/diabetes/complications",
     title: "मधुमेहाच्या गुंतागुंती",
-    description: "मधुमेहामुळे होणाऱ्या दीर्घकालीन गुंतागुंती, त्यांची लक्षणे, प्रतिबंध आणि योग्य काळजी याविषयी संपूर्ण माहिती.",
+    description: "मधुमेहामुळे डोळे, मूत्रपिंड, हृदय, मज्जातंतू आणि पायांवर होणारे परिणाम व आवश्यक काळजी.",
     icon: Heart,
   },
   {
     href: "/diabetes/faq",
     title: "वारंवार विचारले जाणारे प्रश्न",
-    description: "मधुमेहाविषयीचे सामान्य प्रश्न, रक्तातील साखर, आहार, औषधे, इन्सुलिन, व्यायाम आणि जीवनशैली यांसंबंधी तज्ज्ञांनी सुचवलेली माहिती.",
+    description: "मधुमेह, तपासण्या, आहार, औषधे, इन्सुलिन आणि व्यायामाबद्दलच्या सामान्य प्रश्नांची स्पष्ट उत्तरे.",
     icon: BookOpen,
   },
 ];
@@ -101,15 +109,22 @@ export default function DiabetesIndexPage() {
       <div className="mt-8">
         <HeroBanner
           eyebrow="मधुमेह माहिती"
-          title="मधुमेह व्यवस्थापनाचा संपूर्ण मार्गदर्शन"
-          description="मधुमेह समजून घ्या, त्याचे लक्षणे, कारणे आणि व्यवस्थापन. एक निरोगी जीवनशैली सुरू करण्यासाठी संपूर्ण मार्गदर्शन."
+          title="मधुमेह समजून घेण्यासाठी सोपे मार्गदर्शन"
+          description="लक्षणे आणि तपासण्यांपासून आहार, व्यायाम व दैनंदिन काळजीपर्यंतची माहिती सोप्या मराठीत वाचा."
         />
       </div>
 
+      <ArticleImage
+        src="/images/diabetes/overview.webp"
+        alt="आरोग्यदायी आहार, नियमित चालणे आणि डॉक्टरांचा सल्ला घेणारे भारतीय कुटुंब"
+        caption="मधुमेहाची काळजी म्हणजे संतुलित आहार, नियमित हालचाल, तपासणी आणि वैद्यकीय मार्गदर्शन यांचा मेळ."
+        priority
+      />
+
       <div className="mt-16">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">विस्तृत मार्गदर्शन विषय</h2>
-          <p className="mt-4 text-slate-600 dark:text-slate-300">मधुमेहाबद्दल सर्व महत्त्वाची माहिती एक जागेवर</p>
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">मधुमेहाबद्दल महत्त्वाचे विषय</h2>
+          <p className="mt-4 text-slate-600 dark:text-slate-300">तुम्हाला हवी असलेली माहिती खालील विषयांतून निवडा</p>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -133,8 +148,8 @@ export default function DiabetesIndexPage() {
 
       <div className="mt-16">
         <CTA
-          title="सामान्य मधुमेह नियंत्रण सूचना"
-          description="या मार्गदर्शनांचा वापर करून तुमचे आरोग्य सुधारा आणि एक निरोगी जीवन जगा."
+          title="तुमच्या उपचारांबद्दल शंका आहे?"
+          description="औषधे, इन्सुलिन किंवा तपासणीचे वेळापत्रक स्वतः बदलू नका. डॉक्टरांचा सल्ला घ्या."
         />
       </div>
 
@@ -144,5 +159,3 @@ export default function DiabetesIndexPage() {
     </main>
   );
 }
-
-
