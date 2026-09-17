@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
+import ArticleImage from "@/components/ArticleImage";
 import HeroBanner from "@/components/HeroBanner";
 import MedicalTip from "@/components/MedicalTip";
 import RelatedLinks from "@/components/RelatedLinks";
@@ -8,18 +9,20 @@ import Disclaimer from "@/components/Disclaimer";
 
 export const metadata: Metadata = {
   title: "मधुमेहाची गुंतागुंत",
-  description: "मधुमेहाची दीर्घकालीन गुंतागुंत आणि त्यांची रोखथाम.",
+  description: "मधुमेहामुळे डोळे, मूत्रपिंड, हृदय, मज्जातंतू आणि पायांवर होणारे परिणाम, धोक्याची लक्षणे आणि आवश्यक तपासण्या.",
   alternates: { canonical: "/diabetes/complications" },
   openGraph: {
     title: "मधुमेहाची गुंतागुंत",
-    description: "मधुमेहाची दीर्घकालीन गुंतागुंत आणि त्यांची रोखथाम.",
+    description: "मधुमेहाची संभाव्य गुंतागुंत, धोक्याची लक्षणे आणि आवश्यक काळजी.",
     url: "/diabetes/complications",
     type: "website",
+    images: [{ url: "/images/diabetes/complications-care.webp", width: 1536, height: 1024, alt: "मधुमेहाच्या गुंतागुंतींसाठी नियमित वैद्यकीय काळजी" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "मधुमेहाची गुंतागुंत",
-    description: "मधुमेहाची दीर्घकालीन गुंतागुंत आणि त्यांची रोखथाम.",
+    description: "मधुमेहाची संभाव्य गुंतागुंत, धोक्याची लक्षणे आणि आवश्यक काळजी.",
+    images: ["/images/diabetes/complications-care.webp"],
   },
 };
 
@@ -33,17 +36,17 @@ export default function ComplicationsPage() {
     {
   title: "मूत्रपिंडाचा आजार (Diabetic Nephropathy)",
   symptoms: "पाय, घोटे किंवा चेहऱ्यावर सूज येणे, लघवीमध्ये प्रथिने जाणे, थकवा जाणवणे, रक्तदाब वाढणे.",
-  prevention: "रक्तातील साखर आणि रक्तदाब नियंत्रणात ठेवा, डॉक्टरांनी दिलेली औषधे नियमित घ्या, मीठाचे प्रमाण कमी ठेवा, पुरेसे पाणी प्या आणि मूत्रपिंडाच्या कार्याची नियमित तपासणी करा."
+  prevention: "रक्तातील साखर आणि रक्तदाब सांभाळा, डॉक्टरांनी दिलेली औषधे नियमित घ्या आणि मूत्रपिंडाच्या कार्यासाठी रक्त व लघवीच्या चाचण्या वेळेवर करा. पाणी व मीठाचे प्रमाण डॉक्टरांच्या सल्ल्याने ठरवा."
     },
     {
   title: "हृदयविकार (Cardiovascular Disease)",
   symptoms: "छातीत दुखणे, श्वास घेण्यास त्रास होणे, हृदयाचे ठोके अनियमित होणे, लवकर थकवा जाणवणे.",
-  prevention: "रक्तातील साखर, रक्तदाब आणि कोलेस्टेरॉल नियंत्रणात ठेवा, नियमित व्यायाम करा, संतुलित आहार घ्या, धूम्रपान व मद्यपान टाळा आणि नियमित आरोग्य तपासणी करून घ्या."
+  prevention: "रक्तातील साखर, रक्तदाब आणि कोलेस्टेरॉल सांभाळा, नियमित हालचाल करा, संतुलित आहार घ्या, धूम्रपान टाळा आणि डॉक्टरांनी सांगितलेल्या तपासण्या करा."
     },
     {
   title: "स्ट्रोक (Stroke)",
   symptoms: "शरीराच्या एका बाजूला अचानक अशक्तपणा किंवा सुन्नपणा येणे, बोलण्यात अडचण येणे, चेहरा एका बाजूला वाकणे, अचानक दिसण्यात अडचण येणे.",
-  prevention: "रक्तातील साखर, रक्तदाब आणि कोलेस्टेरॉल नियंत्रणात ठेवा, नियमित व्यायाम करा, संतुलित आहार घ्या, धूम्रपान व मद्यपान टाळा आणि नियमित आरोग्य तपासणी करून घ्या."
+  prevention: "रक्तातील साखर, रक्तदाब आणि कोलेस्टेरॉल सांभाळा, नियमित हालचाल करा, संतुलित आहार घ्या, धूम्रपान टाळा आणि डॉक्टरांनी सांगितलेल्या तपासण्या करा."
     },
     {
       title: "मज्जातंतूंचे नुकसान (Neuropathy)",
@@ -63,7 +66,7 @@ export default function ComplicationsPage() {
     {
   title: "दात व हिरड्यांच्या समस्या",
   symptoms: "हिरड्यांतून रक्त येणे, हिरड्यांना सूज येणे, तोंडाला दुर्गंधी येणे, दात सैल होणे किंवा गळणे.",
-  prevention: "दिवसातून दोन वेळा दात घासा, नियमित फ्लॉसचा वापर करा, रक्तातील साखर नियंत्रणात ठेवा आणि दर ६ महिन्यांनी दंतवैद्यांकडून तपासणी करून घ्या."
+  prevention: "दिवसातून दोनदा दात घासा, दातांमधील जागा स्वच्छ ठेवा, रक्तातील साखरेचे व्यवस्थापन करा आणि दंतवैद्याने सुचवलेल्या वेळेनुसार तपासणी करून घ्या."
     },
     {
   title: "मानसिक आरोग्य",
@@ -91,12 +94,19 @@ export default function ComplicationsPage() {
         <HeroBanner
           eyebrow="मधुमेह गुंतागुंत"
           title="मधुमेहाची दीर्घकालीन गुंतागुंत"
-          description="योग्य नियंत्रणामुळे या गुंतागुंत रोखू शकतात."
+          description="योग्य उपचार आणि नियमित तपासण्यांमुळे अनेक गुंतागुंतींचा धोका कमी किंवा त्यांची सुरुवात उशिरा होऊ शकते."
         />
       </div>
 
-      <MedicalTip type="warning" title="महत्वाची">
-        मधुमेह दीर्घकाळ नियंत्रित न राहिल्यास विविध अंगांना नुकसान होऊ शकते. नियमित रक्तशर्करा नियंत्रण या समस्या रोकण्यास मदत करू शकते.
+      <ArticleImage
+        src="/images/diabetes/complications-care.webp"
+        alt="हृदय, डोळे, मूत्रपिंड, मज्जातंतू आणि पायांची काळजी डॉक्टरांकडून समजून घेणारा रुग्ण"
+        caption="नियमित तपासण्या आणि रक्तातील साखर, रक्तदाब व कोलेस्टेरॉलचे व्यवस्थापन गुंतागुंतींचा धोका कमी करण्यास मदत करते."
+        priority
+      />
+
+      <MedicalTip type="warning" title="महत्त्वाचे">
+        रक्तातील साखर दीर्घकाळ जास्त राहिल्यास रक्तवाहिन्या आणि मज्जातंतूंना नुकसान होऊ शकते. रक्तातील साखरेसोबत रक्तदाब, कोलेस्टेरॉल, धूम्रपान आणि इतर जोखीम घटकांचे व्यवस्थापनही महत्त्वाचे आहे.
       </MedicalTip>
 
       <section className="mt-12 space-y-6">
@@ -114,7 +124,7 @@ export default function ComplicationsPage() {
                     <p className="text-sm text-slate-700 dark:text-slate-300">{comp.symptoms}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-slate-600 dark:text-slate-400">प्रतिबंध:</p>
+                    <p className="text-xs font-semibold text-slate-600 dark:text-slate-400">धोका कमी करण्यासाठी:</p>
                     <p className="text-sm text-slate-700 dark:text-slate-300">{comp.prevention}</p>
                   </div>
                 </div>
@@ -129,43 +139,43 @@ export default function ComplicationsPage() {
 
         <div className="grid gap-4">
           <div className="rounded-2xl border-l-4 border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 p-4">
-            <h4 className="font-semibold text-slate-900 dark:text-white">✓ नियमित रक्तशर्करा नियंत्रण</h4>
-            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">रक्तशर्करा सामान्य पातळीवर ठेवल्याने गुंतागुंत होण्याचा धोका कमी होतो.</p>
+            <h4 className="font-semibold text-slate-900 dark:text-white">✓ रक्तातील साखरेचे व्यवस्थापन</h4>
+            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">डॉक्टरांनी ठरवलेल्या वैयक्तिक लक्ष्याच्या दिशेने सातत्याने काम करा.</p>
           </div>
 
           <div className="rounded-2xl border-l-4 border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 p-4">
-            <h4 className="font-semibold text-slate-900 dark:text-white">✓ स्वस्थ आहार</h4>
-            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">संपूर्ण धान्य, भाज्या, फळे आणि प्रोटीनयुक्त खाद्य.</p>
+            <h4 className="font-semibold text-slate-900 dark:text-white">✓ संतुलित आहार</h4>
+            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">भाज्या, योग्य प्रमाणातील धान्य, कडधान्ये व इतर प्रथिनांचे स्रोत आणि संपूर्ण फळे निवडा.</p>
           </div>
 
           <div className="rounded-2xl border-l-4 border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 p-4">
             <h4 className="font-semibold text-slate-900 dark:text-white">✓ नियमित व्यायाम</h4>
-            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">आठवड्यात कमीत कमी 150 मिनिटे व्यायाम करा.</p>
+            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">तुमच्या क्षमतेनुसार नियमित हालचाल करा; गुंतागुंत असल्यास योग्य व्यायाम डॉक्टरांकडून समजून घ्या.</p>
           </div>
 
           <div className="rounded-2xl border-l-4 border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 p-4">
             <h4 className="font-semibold text-slate-900 dark:text-white">✓ वजन व्यवस्थापन</h4>
-            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">स्वस्थ वजन राखा - हे इन्सुलिन संवेदनशीलतेत सुधार करते.</p>
+            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">जादा वजन असल्यास सुरक्षित आणि वास्तववादी उद्दिष्ट डॉक्टर किंवा आहारतज्ज्ञासोबत ठरवा.</p>
           </div>
 
           <div className="rounded-2xl border-l-4 border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 p-4">
-            <h4 className="font-semibold text-slate-900 dark:text-white">✓ औषध नियमितता</h4>
-            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">डॉक्टरांनी सांगितलेल्या सर्व औषधे वेळेवर घ्या.</p>
+            <h4 className="font-semibold text-slate-900 dark:text-white">✓ औषधे नियमित घेणे</h4>
+            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">औषधे आणि इन्सुलिन नेमक्या सूचनेप्रमाणे घ्या; स्वतःहून बदल करू नका.</p>
           </div>
 
           <div className="rounded-2xl border-l-4 border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 p-4">
             <h4 className="font-semibold text-slate-900 dark:text-white">✓ तणाव कमी करा</h4>
-            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">ध्यान, योग आणि विश्राम तणाव कमी करतात.</p>
+            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">श्वसनाचा सराव, आवडते काम, पुरेशी झोप आणि गरज असल्यास तज्ज्ञांची मदत घ्या.</p>
           </div>
 
           <div className="rounded-2xl border-l-4 border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 p-4">
             <h4 className="font-semibold text-slate-900 dark:text-white">✓ नियमित तपासणी</h4>
-            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">महिन्यामध्ये कमीत कमी एक वेळा डॉक्टरांना भेट दे.</p>
+            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">तुमचा मधुमेहाचा प्रकार, औषधे आणि तब्येत यानुसार डॉक्टर भेटींचे वेळापत्रक ठरवा.</p>
           </div>
 
           <div className="rounded-2xl border-l-4 border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 p-4">
             <h4 className="font-semibold text-slate-900 dark:text-white">✓ जीवनशैली बदल</h4>
-            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">धूम्रपान आणि अल्कोहोलपासून दूर राहा.</p>
+            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">धूम्रपान टाळा. मद्य घेत असल्यास त्याचा औषधे आणि रक्तातील साखरेवर होणारा परिणाम डॉक्टरांकडून समजून घ्या.</p>
           </div>
         </div>
       </section>
@@ -174,12 +184,12 @@ export default function ComplicationsPage() {
         <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">नियमित तपासणी</h2>
 
         <div className="rounded-2xl border border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/30 p-6">
-          <h3 className="font-semibold text-blue-900 dark:text-blue-200 mb-4">प्रत्येक 3-6 महिन्यामध्ये:</h3>
+          <h3 className="font-semibold text-blue-900 dark:text-blue-200 mb-4">डॉक्टरांनी सुचवलेल्या वेळेनुसार:</h3>
           <ul className="space-y-2 text-sm text-blue-800 dark:text-blue-300">
-            <li>• HbA1c परीक्षा</li>
-            <li>• रक्तशर्करा परीक्षा</li>
+            <li>• HbA1c चाचणी</li>
+            <li>• रक्तातील साखरेच्या नोंदींचा आढावा</li>
             <li>• लिपिड प्रोफाईल</li>
-            <li>• रक्तचाप तपासणी</li>
+            <li>• रक्तदाब तपासणी</li>
           </ul>
         </div>
 
@@ -188,7 +198,7 @@ export default function ComplicationsPage() {
           <ul className="space-y-2 text-sm text-green-800 dark:text-green-300">
             <li>• संपूर्ण आरोग्य तपासणी</li>
             <li>• डोळ्यांची तपासणी (नेत्र वैद्यांद्वारे)</li>
-            <li>• वुकल कार्य परीक्षा</li>
+            <li>• मूत्रपिंडासाठी रक्त व लघवीच्या चाचण्या</li>
             <li>• दंत तपासणी</li>
             <li>• पायांची तपासणी</li>
           </ul>
@@ -196,7 +206,7 @@ export default function ComplicationsPage() {
       </section>
 
       <RelatedLinks
-        title="जटिलता समजून घेतल्यानंतर"
+        title="गुंतागुंत समजून घेतल्यानंतर"
         description="जोखीम कमी करणाऱ्या मूलभूत पानांकडे परत जा."
         links={[
           {
@@ -206,8 +216,8 @@ export default function ComplicationsPage() {
           },
           {
             href: "/diabetes/blood-sugar-monitoring",
-            title: "रक्त शर्करा मापन",
-            description: "घरी मोजणी करून गुंतागुंत कमी करा.",
+            title: "रक्तातील साखरेची तपासणी",
+            description: "घरी केलेल्या तपासणीची नोंद उपचारांचा परिणाम समजण्यास मदत करते.",
           },
           {
             href: "/diabetes/foot-care",
@@ -227,5 +237,3 @@ export default function ComplicationsPage() {
     </main>
   );
 }
-
-

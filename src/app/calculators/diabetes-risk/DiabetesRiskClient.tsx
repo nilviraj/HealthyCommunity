@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import CalculatorBackButton from "@/components/CalculatorBackButton";
 import { calculateIdrs, getIdrsCategory, type BinarySex, type FamilyHistory, type PhysicalActivity } from "@/lib/health-calculators";
 import { trackEvent } from "@/lib/analytics";
 
@@ -19,6 +20,7 @@ export default function DiabetesRiskClient() {
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+      <CalculatorBackButton />
       <div className="rounded-[2rem] border border-emerald-100 bg-white p-5 shadow-sm sm:p-8">
         <h1 className="text-3xl font-semibold text-slate-900">मधुमेह जोखीम तपासणी</h1>
         <p className="mt-3 text-sm leading-7 text-slate-600">भारतासाठी विकसित केलेल्या IDRS पद्धतीने टाइप २ मधुमेहाची तपासणी करून घेण्याची गरज समजून घ्या.</p>
