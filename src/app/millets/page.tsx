@@ -28,6 +28,8 @@ const milletHighlights = [
     imageCredit: "Roger Culos / Wikimedia Commons (CC BY-SA 4.0)",
     imageSource: "https://commons.wikimedia.org/wiki/File:Echinochloa_frumentacea_MHNT.BOT.2013.22.37.jpg",
     uses: "महाराष्ट्रात वरी हा उपवासातील भात म्हणून परिचित आहे. खिचडी, भातासारखा प्रकार किंवा पेज करता येते.",
+    benefit: "यातील फायबर पचन नियमित ठेवण्यास आणि जेवणानंतर जास्त वेळ पोट भरल्यासारखे वाटण्यास मदत करू शकते. लोह शरीरात हिमोग्लोबिन तयार करण्यासाठी आवश्यक असते.",
+    nutrition: { protein: "६.२ ग्रॅम", fibre: "१०.१ ग्रॅम", calcium: "२० मिग्रॅ", iron: "१५ मिग्रॅ", phosphorus: "२९३ मिग्रॅ" },
   },
   {
     title: "नाचणी / रागी (Finger Millet)",
@@ -37,6 +39,8 @@ const milletHighlights = [
     imageCredit: "Roger Culos / Wikimedia Commons (CC BY-SA 4.0)",
     imageSource: "https://commons.wikimedia.org/wiki/File:Eleusine_coracana_MHNT.BOT.2015.34.17.jpg",
     uses: "नाचणीची भाकरी, आंबील, सत्त्व, डोसा किंवा थालीपीठ करता येते. साखर घातलेले तयार मिश्रण निवडताना लेबल तपासा.",
+    benefit: "नाचणीतील कॅल्शियम हाडे आणि दातांच्या सामान्य आरोग्यासाठी महत्त्वाचे आहे. प्रथिने आणि फायबरमुळे ती संतुलित जेवणातील उपयुक्त धान्य ठरू शकते.",
+    nutrition: { protein: "७.३ ग्रॅम", fibre: "३.६ ग्रॅम", calcium: "३४४ मिग्रॅ", iron: "३.९ मिग्रॅ", phosphorus: "२८३ मिग्रॅ" },
   },
   {
     title: "कोदो / कोद्रा (Kodo Millet)",
@@ -46,6 +50,8 @@ const milletHighlights = [
     imageCredit: "Tonynirappathu / Wikimedia Commons (CC BY 4.0)",
     imageSource: "https://commons.wikimedia.org/wiki/File:Kodo_Millet.jpg",
     uses: "दाणे नीट स्वच्छ करून शिजवा. खिचडी, पुलाव, पेज किंवा उपम्यासारख्या पदार्थांत वापरता येतात.",
+    benefit: "यातील फायबर पचन आणि पोट भरल्याची भावना टिकवण्यास मदत करू शकते. विविध धान्यांचा आहारात समावेश करण्यासाठी हा एक पर्याय आहे.",
+    nutrition: { protein: "८.३ ग्रॅम", fibre: "९.३ ग्रॅम", calcium: "२७ मिग्रॅ", iron: "०.६ मिग्रॅ", phosphorus: "१८९ मिग्रॅ" },
   },
   {
     title: "कांगणी (Foxtail Millet)",
@@ -55,6 +61,8 @@ const milletHighlights = [
     imageCredit: "Roger Culos / Wikimedia Commons (CC BY-SA 4.0)",
     imageSource: "https://commons.wikimedia.org/wiki/File:Setaria_italica_MHNT.BOT.2015.34.19.jpg",
     uses: "दाण्यांपासून उपमा, खिचडी किंवा पुलाव करता येतो; पीठाचा वापर डोसा किंवा इतर मिश्र पिठांत करता येतो.",
+    benefit: "या सहा प्रकारांमध्ये कांगणीत प्रथिनांचे प्रमाण तुलनेने जास्त आहे. प्रथिने शरीरातील स्नायू आणि ऊतींच्या देखभालीसाठी आवश्यक असतात.",
+    nutrition: { protein: "१२.३ ग्रॅम", fibre: "८ ग्रॅम", calcium: "३१ मिग्रॅ", iron: "१.१ मिग्रॅ", phosphorus: "२५८ मिग्रॅ" },
   },
   {
     title: "लिटल मिलेट / कुटकी (Little Millet)",
@@ -64,6 +72,8 @@ const milletHighlights = [
     imageCredit: "Tonynirappathu / Wikimedia Commons (CC BY 4.0)",
     imageSource: "https://commons.wikimedia.org/wiki/File:Little_Millet.jpg",
     uses: "लहान दाण्यांचे हे मिलेट खिचडी, पेज, उपमा किंवा भातासारखे शिजवता येते. पॅकेटवरील शास्त्रीय नाव पाहून प्रकार निश्चित करा.",
+    benefit: "यातील प्रथिने, फायबर आणि लोह रोजच्या आहारातील पोषक विविधता वाढवू शकतात. फायबर पचनासाठी उपयुक्त ठरते.",
+    nutrition: { protein: "७.७ ग्रॅम", fibre: "७.६ ग्रॅम", calcium: "१७ मिग्रॅ", iron: "९.३ मिग्रॅ", phosphorus: "२०७ मिग्रॅ" },
   },
   {
     title: "ब्राऊनटॉप मिलेट (Browntop Millet)",
@@ -73,6 +83,8 @@ const milletHighlights = [
     imageCredit: "Bat / Wikimedia Commons (CC0)",
     imageSource: "https://commons.wikimedia.org/wiki/File:Brachiaria_ramosa_from_Ambanja,_Madagascar.jpg",
     uses: "भारतात तुलनेने कमी परिचित असलेला प्रकार. दाणे शिजवून खिचडी, पेज किंवा पुलावात वापरता येतात.",
+    benefit: "यातील प्रथिने शरीराच्या ऊतींच्या देखभालीसाठी, तर फायबर पचन आणि पोट भरल्याची भावना टिकवण्यासाठी उपयुक्त ठरू शकते.",
+    nutrition: { protein: "८.९८ ग्रॅम", fibre: "७.३ ग्रॅम", calcium: "२८ मिग्रॅ", iron: "७.७२ मिग्रॅ", phosphorus: "२७६ मिग्रॅ" },
   },
 ];
 
@@ -125,6 +137,9 @@ export default function MilletsPage() {
 
       <section className="mt-12">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white">मिलेट्सचे प्रमुख प्रकार</h2>
+        <div className="mt-4 rounded-2xl border border-blue-200 bg-blue-50 p-4 text-sm leading-relaxed text-blue-900 dark:border-blue-900 dark:bg-blue-950/30 dark:text-blue-200">
+          खालील पोषणमूल्ये <strong>प्रति १०० ग्रॅम कच्च्या धान्यासाठी</strong> आहेत. प्रकार, हवामान, प्रक्रिया आणि ब्रँडनुसार प्रत्यक्ष मूल्ये बदलू शकतात. शिजवलेल्या १०० ग्रॅममधील मूल्ये पाण्यामुळे यापेक्षा वेगळी असतात.
+        </div>
         <div className="mt-6 grid gap-5 sm:grid-cols-2">
           {milletHighlights.map((item) => (
             <article key={item.title} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
@@ -143,6 +158,20 @@ export default function MilletsPage() {
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{item.title}</h3>
                 <p className="mt-2 text-sm italic text-slate-500 dark:text-slate-400">शास्त्रीय नाव: {item.botanicalName}</p>
                 <p className="mt-3 leading-relaxed text-slate-700 dark:text-slate-300">{item.uses}</p>
+                <div className="mt-4 rounded-xl bg-slate-50 p-4 dark:bg-slate-800/70">
+                  <h4 className="font-semibold text-slate-900 dark:text-white">पोषणमूल्ये — प्रति १०० ग्रॅम</h4>
+                  <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                    <div><dt className="text-slate-500 dark:text-slate-400">प्रथिने</dt><dd className="font-semibold text-slate-900 dark:text-white">{item.nutrition.protein}</dd></div>
+                    <div><dt className="text-slate-500 dark:text-slate-400">फायबर</dt><dd className="font-semibold text-slate-900 dark:text-white">{item.nutrition.fibre}</dd></div>
+                    <div><dt className="text-slate-500 dark:text-slate-400">कॅल्शियम</dt><dd className="font-semibold text-slate-900 dark:text-white">{item.nutrition.calcium}</dd></div>
+                    <div><dt className="text-slate-500 dark:text-slate-400">लोह</dt><dd className="font-semibold text-slate-900 dark:text-white">{item.nutrition.iron}</dd></div>
+                    <div><dt className="text-slate-500 dark:text-slate-400">फॉस्फरस</dt><dd className="font-semibold text-slate-900 dark:text-white">{item.nutrition.phosphorus}</dd></div>
+                  </dl>
+                </div>
+                <div className="mt-4">
+                  <h4 className="font-semibold text-emerald-800 dark:text-emerald-300">पोषणातून मिळणारा उपयोग</h4>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-700 dark:text-slate-300">{item.benefit}</p>
+                </div>
               </div>
             </article>
           ))}
@@ -185,6 +214,7 @@ export default function MilletsPage() {
         <h2 className="text-2xl font-bold text-slate-900 dark:text-white">संदर्भ</h2>
         <ul className="mt-4 list-disc space-y-3 pl-6 text-slate-700 dark:text-slate-300">
           <li><a className="underline underline-offset-4 hover:text-emerald-700" href="https://nin.res.in/dietaryguidelines/pdfjs/locale/DGI_2024.pdf" target="_blank" rel="noreferrer">ICMR–National Institute of Nutrition: Dietary Guidelines for Indians, 2024</a></li>
+          <li><a className="underline underline-offset-4 hover:text-emerald-700" href="https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2024.1346869/full" target="_blank" rel="noreferrer">Frontiers in Nutrition: आठ प्रकारच्या मिलेट्सची पोषणमूल्ये, 2024</a></li>
           <li><a className="underline underline-offset-4 hover:text-emerald-700" href="https://www.fao.org/millets-2023/en" target="_blank" rel="noreferrer">Food and Agriculture Organization: International Year of Millets</a></li>
         </ul>
         <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">माहिती अद्ययावत: १९ सप्टेंबर २०२६</p>
