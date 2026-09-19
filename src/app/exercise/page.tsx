@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Activity, AlertCircle, CheckCircle2, Clock, Heart, Zap } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
 import HeroBanner from "@/components/HeroBanner";
@@ -99,6 +100,27 @@ export default function ExercisePage() {
           </div>
         </div>
       </section>
+
+      <figure className="mt-10 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
+        <Image
+          src="/images/exercise/balanced-weekly-activity.webp"
+          alt="चालणे, शक्तिवर्धक व्यायाम, स्ट्रेचिंग आणि बसण्याच्या वेळेत छोटे चालण्याचे ब्रेक घेणारे भारतीय प्रौढ"
+          width={1400}
+          height={788}
+          sizes="(min-width: 1024px) 896px, calc(100vw - 32px)"
+          priority
+          className="h-auto w-full"
+        />
+        <figcaption className="p-5">
+          <p className="font-semibold text-slate-900 dark:text-white">संतुलित हालचालीचे चार भाग</p>
+          <ul className="mt-3 grid grid-cols-2 gap-2 text-sm text-slate-600 dark:text-slate-300 sm:grid-cols-4">
+            <li>🚶 चालणे</li>
+            <li>💪 शक्तिवर्धक व्यायाम</li>
+            <li>🧘 लवचिकता व संतुलन</li>
+            <li>🪑 बसण्यात छोटे ब्रेक</li>
+          </ul>
+        </figcaption>
+      </figure>
 
       <section className="mt-12">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white">उद्दिष्टानुसार व्यायाम निवडा</h2>
