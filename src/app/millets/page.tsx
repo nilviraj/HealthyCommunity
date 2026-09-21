@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "मिलेट्स म्हणजे काय? मराठी नावे, प्रकार आणि वापर",
     description: "मिलेट्स ओळखण्यासाठी स्थानिक आणि शास्त्रीय नावे, तसेच रोजच्या जेवणातील व्यावहारिक उपयोग.",
+    url: "/millets",
   },
   alternates: { canonical: "/millets" },
 };

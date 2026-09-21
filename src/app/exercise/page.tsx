@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     title: "सर्वोत्तम व्यायाम कोणता? सुरक्षित सुरुवातीचे मार्गदर्शन",
     description:
       "आपल्या उद्दिष्टाला, तब्येतीला आणि दिनक्रमाला बसणारा व्यायाम निवडण्यासाठी सोपे मार्गदर्शन.",
+    url: "/exercise",
   },
   alternates: { canonical: "/exercise" },
 };

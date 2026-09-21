@@ -7,9 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "verify": "npm run verify:adsense && npm run verify:calculators",
+    "verify": "npm run verify:adsense && npm run verify:calculators && npm run verify:site-url",
     "verify:adsense": "node scripts/verify-adsense.mjs",
-    "verify:calculators": "node --experimental-strip-types scripts/verify-calculators.mjs"
+    "verify:calculators": "node --experimental-strip-types scripts/verify-calculators.mjs",
+    "verify:site-url": "node scripts/verify-site-url.mjs",
+    "verify:seo-output": "node scripts/verify-seo-output.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.43.0",
