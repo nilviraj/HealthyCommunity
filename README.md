@@ -50,7 +50,8 @@ NEXT_PUBLIC_ADSENSE_CLIENT_ID=ca-pub-XXXXXXXXXXXXXXXX
 
 Notes:
 
-- `NEXT_PUBLIC_SITE_URL` must match the deployed canonical origin.
+- Set `NEXT_PUBLIC_SITE_URL=https://www.healthycommunity.in` in production so it matches the canonical origin exactly.
+- Vercel's automatic `VERCEL_URL` and `VERCEL_PROJECT_PRODUCTION_URL` values are intentionally ignored for canonical metadata. Preview deployments must keep pointing search engines to the production domain.
 - `CONTACT_FORM_TO` supports comma-separated recipients.
 - `NEXT_PUBLIC_GA_MEASUREMENT_ID` enables Google Analytics 4.
 - `NEXT_PUBLIC_ADSENSE_CLIENT_ID` enables the AdSense loader script.
