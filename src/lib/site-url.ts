@@ -17,8 +17,6 @@ function getConfiguredSiteUrl() {
   const candidates = [
     process.env.NEXT_PUBLIC_SITE_URL,
     process.env.SITE_URL,
-    process.env.VERCEL_PROJECT_PRODUCTION_URL,
-    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined,
   ];
 
   for (const candidate of candidates) {
@@ -47,11 +45,7 @@ export function resolveSiteUrl() {
 
 export function resolveAllowedOrigins(requestUrl?: string) {
   const origins = new Set<string>();
-  const configured = getConfiguredSiteUrl();
-
-  if (configured) {
-    origins.add(new URL(configured).origin);
-  }
+  origins.add(new URL(resolveSiteUrl()).origin);
 
   if (requestUrl) {
     origins.add(new URL(requestUrl).origin);
